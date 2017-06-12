@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    #app {
+        margin: 0 auto;
+        max-width: 640px;
+    }
+
+    fieldset {
+        border: 1px solid #BCBCBC;
+        padding: 15px;
+    }
+
+    #app fieldset legend {
+        font-size: 20px;
+        text-align: left;
+    }
+    table {
+    width: 100%;
+}
+table, td, th {
+    border-collapse: collapse;
+    border-spacing: 9px;
+    text-align: center;
+}
+td, th {
+    border: 1px solid #bcbcbc;
+    padding: 5px 10px;
+}
+th {
+    background: #42b983;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #fff;
+    cursor: pointer;
+}
+tr:nth-of-type(even){
+    background-color: #eee;
+}
+label {
+    white-space: pre;
+}
+fieldset button {
+    margin: 20px 10px;
+}
+</style>
+
+<body>
+    <div id="app">
+        <fieldset>
+            <legend>Creat</legend>
+            <div class="creat">
+                <div><label>Name : <input type="username" v-model=newPerson.name></label></div>
+                <div><label>  Age  : <input type="number" v-model=newPerson.age></label></div>
+                <div><label>  Sex   : <select name="sex" v-model=newPerson.sex>
+                    <option  value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </label></div>
+                <button v-on:click='creat'>Creat</button>
+            </div>
+        </fieldset>
+        <div class="show">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Sex</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for='(person,index) in people'>
+                        <td>{{person.name}}</td>
+                        <td>{{person.age}}</td>
+                        <td>{{person.sex}}</td>
+                        <td v-on:click='iDelete(index)'>delete</td>
+                        <!--iDelete和iDelete(index)区别：第一种是鼠标对象，第二种是vue对象-->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--<script src="../vue.js"></script>-->
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                newPerson: {
+                    name: 'xxx',
+                    age: 0,
+                    sex: 'Male',
+                    delet: 'delet'
+                },
+                people: [{
+                    name: 'Bill',
+                    age: 26,
+                    sex: 'Male'
+                }, {
+                    name: 'Tracy',
+                    age: 22,
+                    sex: 'Female'
+                }, {
+                    name: 'Chris',
+                    age: 36,
+                    sex: 'Male'
+                }]
+            },
+            methods: {
+                creat: function () {
+                    this.people.push(this.newPerson)
+                    this.newPerson = { //添加完重置
+                        name: 'xxx',
+                        age: 0,
+                        sex: 'Male'
+                    }
+                },
+                iDelete: function (index) {
+                    this.people.splice(index, 1)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
