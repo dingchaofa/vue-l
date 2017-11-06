@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object.defineProtype</title>
+</head>
+<body>
+<input type="text" class="username">
+<p class="show_name"></p>
+<script>
+    var username = document.querySelector('.username'),
+      show_name = document.querySelector('.show_name')
+    username.addEventListener('keyup',function () {
+      show_name.textContent = username.value
+    })
+</script>
+</body>
+</html>
