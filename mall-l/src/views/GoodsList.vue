@@ -37,7 +37,7 @@
               <ul>
                 <li v-for="goods in goodsData">
                   <div class="pic">
-                    <a href="#"><img v-lazy="'static/images/'+goods.productImg" alt=""></a>
+                    <a href="#"><img v-lazy="'static/images/'+goods.productImage" alt=""></a>
                   </div>
                   <div class="main">
                     <div class="name">{{goods.productName}}</div>
@@ -108,10 +108,12 @@
     },
     methods:{
       getGoodsData(){
+
         axios('./goodsData').then(res=>{
           //console.log(res.data.goodsData)
           this.goodsData = res.data.goodsData
         })
+
       },
       priceSelected(index){
         let l = arguments.length

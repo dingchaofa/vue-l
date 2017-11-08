@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>leancloud install testt</title>
+</head>
+<body>
+<script>
+  var APP_ID = 'WzP3jIAzOJR7lGlulCrJfmyU-gzGzoHsz';
+  var APP_KEY = 'tqvvUcn2AmnvgYSsMtPIPCff';
+
+  AV.init({
+    appId: APP_ID,
+    appKey: APP_KEY
+  });
+
+  var TestObject = AV.Object.extend('TestObject');
+  var testObject = new TestObject();
+  testObject.save({
+    words: 'Hello World!'
+  }).then(function(object) {
+    alert('LeanCloud Rocks!');
+  })
+</script>
+</body>
+</html>

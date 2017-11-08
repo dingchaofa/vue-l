@@ -18,8 +18,6 @@ npm run build
 npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-
 #### Project process
 
 1.
@@ -32,3 +30,17 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
   * 实现node做中间层，模拟请求
   * 搭建Express框架
   * 用ejs，修改jade模版引擎为html
+
+4.
+  * 了解MongonDB，由于由于构建比较复杂，之后再研究，继续使用本地数据文件提供数据
+  * 学习leancloud做后端数据存储（存储用户名和用户数据）
+
+#### start
+
+  * start project
+  > cd mall-l
+  > node run dev ; pm2 build/dev-server.js
+
+  * start express
+  > cd server
+  > node start ; pm2 bin/www

@@ -23,6 +23,7 @@ const proxyTable = config.dev.proxyTable
 
 const app = express()
 const router = express.Router()
+
 const goodsData = require('./../src/mock/goodsData.json')
 router.get('/goodsData',function (req,res,next) {
   res.json(goodsData)
