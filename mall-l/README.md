@@ -1,8 +1,13 @@
 # mall-l
+Vue + Node.js + Leancloud打造购物商城
+
+1. 利用Vue搭建页面
+2. Node.js建立路由，运行代码
+3. Leancloud的Baas（backend as a server）做后台和数据库
 
 > A Vue.js project
 
-## Build Setup
+### Build Setup
 
 ``` bash
 # install dependencies
@@ -18,10 +23,20 @@ npm run build
 npm run build --report
 ```
 
+#### start
+
+  * start project
+  > cd mall-l
+  > node run dev ; pm2 build/dev-server.js
+
+  * start express
+  > cd server
+  > node start ; pm2 bin/www
+
 #### Project process
 
 1.
-
+  * Vue 回顾
 2.
   * 商品列表vue组件实现
 
@@ -32,15 +47,13 @@ npm run build --report
   * 用ejs，修改jade模版引擎为html
 
 4.
-  * 了解MongonDB，由于由于构建比较复杂，之后再研究，继续使用本地数据文件提供数据
+  * 利用vue-lazyload插件实现数据的懒加载
+  * 了解MongonDB，由于构建比较复杂，之后再研究。
   * 学习leancloud做后端数据存储（存储用户名和用户数据）
 
-#### start
+5.
+  * 利用leancloud搭建后台数据库，实现数据库的增删改查
 
-  * start project
-  > cd mall-l
-  > node run dev ; pm2 build/dev-server.js
+#### 注意事项
 
-  * start express
-  > cd server
-  > node start ; pm2 bin/www
+1. 数据异步请求，注意请求数据的处理顺序

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取leancloud数据库测试</title>
+</head>
+<body>
+<script src="../node_modules/leancloud-storage/dist/av.js"></script>
+
+<script>
+  var APP_ID = 'WzP3jIAzOJR7lGlulCrJfmyU-gzGzoHsz';
+  var APP_KEY = 'tqvvUcn2AmnvgYSsMtPIPCff';
+
+  AV.init({
+    appId: APP_ID,
+    appKey: APP_KEY
+  });
+
+  var query = new AV.Query('goodsList')
+
+  //查询单个
+//  query.get('5a02d2488d6d810027ad82ec').then(function (list) {
+//    console.log(list)
+//  },function (error) {
+//    console.error(error)
+//  })
+
+//  比较查询
+//  query.lessThan('salePrice', 1000);
+//  query.find().then(function (results) {
+//    console.log(results)
+//  }, function (error) {
+//    console.error(error)
+//  });
+
+
+
+</script>
+</body>
+</html>

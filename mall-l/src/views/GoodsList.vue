@@ -37,7 +37,7 @@
               <ul>
                 <li v-for="goods in goodsData">
                   <div class="pic">
-                    <a href="#"><img v-lazy="'static/images/'+goods.productImage" alt=""></a>
+                    <a href="#"><img v-lazy="goods.productUrl" alt=""></a>
                   </div>
                   <div class="main">
                     <div class="name">{{goods.productName}}</div>
@@ -67,6 +67,9 @@
   import PageFooter from './../components/PageFooter'
   import Breaks from './../components/Breaks'
   import axios from 'axios'
+  import AV from 'leancloud-storage'
+  import initLeanCloud from './../../leancloud/initLeanCloud'
+
 
   export default {
     data() {
@@ -101,18 +104,64 @@
       Breaks
     },
     created(){
-      this.getGoodsData()
+//      this.getGoodsData()
     },
     mounted(){
-      //this.getGoodsData()
+      this.getGoodsData()
     },
     methods:{
       getGoodsData(){
 
-        axios('./goodsData').then(res=>{
-          //console.log(res.data.goodsData)
-          this.goodsData = res.data.goodsData
+        //从leancloud获取数据
+//        axios('./goodsData').then(res=>{
+//          //console.log(res.data.goodsData)
+//          this.goodsData = res.data.goodsData
+//        })
+
+        //从leancloud的goodsList对象获取数据
+        var query = new AV.Query('goodsList'),
+            _serverData = [],
+            _this = this
+
+        //query.greaterThanOrEqualTo('salePrice', 0); //不加这一句就是找到所有的对象
+        query.find().then(function (results) { //注意异步请求，获取数据需要时间
+          //console.log(results,'_serverData1')
+          results.forEach((ele)=>{
+            _serverData.push(ele._serverData)
+          })
+
+          //请求到数据之后再请求图片地址
+          var queryFile = new AV.Query('_File'),
+            queryImage = []
+
+          queryFile.find().then(function (fileInfo) { //查询图片
+
+            fileInfo.forEach((ele,index)=>{
+              queryImage[index] = {}
+              queryImage[index].name = ele._serverData.name
+              queryImage[index].url = ele._serverData.url
+            })
+
+            //把相对应的图片的URL赋给_serverData，以便能在页面里加载图片的URL
+            _serverData.forEach((ele)=>{
+              for(var i=0;i<queryImage.length;i++){
+                if(ele.productImage===queryImage[i].name){
+                  ele.productUrl = queryImage[i].url
+                }
+              }
+            })
+            _this.goodsData = _serverData
+            console.log(_serverData,'_serverData')
+
+          }, function (error) {
+            console.error(error,'error_file')
+          })
+
+
+        }, function (error) {
+          console.error(error,'error')
         })
+
 
       },
       priceSelected(index){
