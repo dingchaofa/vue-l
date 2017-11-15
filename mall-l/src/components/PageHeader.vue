@@ -14,7 +14,7 @@
           <div class="navbar-cart-container">
             <span class="navbar-cart-count"></span>
             <a class="navbar-link navbar-cart-link" href="/#/cart">
-              <svg class="navbar-cart-logo" viewBox="0 0 38 32">
+              <svg class="navbar-cart-logo">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-cart"></use>
               </svg>
             </a>
@@ -30,15 +30,18 @@
     display: flex;
     justify-content: space-between;
   }
+
   .navbar-right-container {
     display: flex;
     align-items: center;
   }
+
   .navbar-menu-container {
     line-height: 30px;
     display: flex;
     margin-right: 20px;
   }
+
   svg.navbar-cart-logo {
     width: 30px;
     height: 30px;

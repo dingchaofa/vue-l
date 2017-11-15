@@ -1,5 +1,26 @@
 <template>
   <div>
+    <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <!-- 箭头和购物车成功 -->
+      <defs>
+        <symbol id="icon-cart" viewBox="0 0 38 32">
+          <title>cart</title>
+          <path class="path1" d="M37.759 0h-4.133c-0.733 0.004-1.337 0.549-1.434 1.255l-0.546 4.342c-0.081 0.484-0.496 0.849-0.997 0.849-0.005 0-0.009-0-0.014-0h-27.604c-0.003 0-0.007-0-0.011-0-1.674 0-3.031 1.357-3.031 3.031 0 0.34 0.056 0.666 0.159 0.971l2.52 8.062c0.385 1.194 1.486 2.043 2.785 2.043 0.126 0 0.25-0.008 0.372-0.023l22.983 0.002c0.515 0.131 0.626 0.768 0.626 1.283 0.005 0.044 0.009 0.095 0.009 0.146 0 0.501-0.294 0.933-0.718 1.134l-22.439 0.003c-0.354 0-0.642 0.287-0.642 0.642s0.287 0.642 0.642 0.642h22.745l0.131-0.071c0.919-0.392 1.551-1.287 1.551-2.33 0-0.058-0.002-0.116-0.006-0.173 0.021-0.108 0.033-0.24 0.033-0.376 0-1.072-0.732-1.973-1.724-2.23l-23.357-0.004c-0.063 0.008-0.135 0.013-0.209 0.013-0.719 0-1.332-0.455-1.566-1.093l-2.53-8.095c-0.048-0.154-0.076-0.332-0.076-0.515 0-0.973 0.782-1.764 1.752-1.778h27.657c1.159-0.004 2.112-0.883 2.232-2.011l0.547-4.345c0.010-0.083 0.078-0.147 0.161-0.152l4.133-0c0.354 0 0.642-0.287 0.642-0.642s-0.287-0.642-0.642-0.642z"></path>
+          <path class="path2" d="M31.323 9.69c-0.022-0.003-0.048-0.004-0.074-0.004-0.328 0-0.598 0.248-0.633 0.567l-0.809 7.268c-0.003 0.022-0.004 0.048-0.004 0.074 0 0.328 0.248 0.598 0.567 0.633l0.074 0c0.001 0 0.003 0 0.004 0 0.327 0 0.596-0.246 0.632-0.563l0.809-7.268c0.003-0.022 0.004-0.048 0.004-0.074 0-0.328-0.248-0.598-0.567-0.633z"></path>
+          <path class="path3" d="M27.514 25.594c-1.769 0-3.203 1.434-3.203 3.203s1.434 3.203 3.203 3.203c1.769 0 3.203-1.434 3.203-3.203s-1.434-3.203-3.203-3.203zM27.514 30.717c-1.060 0-1.92-0.86-1.92-1.92s0.86-1.92 1.92-1.92c1.060 0 1.92 0.86 1.92 1.92s-0.86 1.92-1.92 1.92z"></path>
+          <path class="path4" d="M9.599 25.594c-1.769 0-3.203 1.434-3.203 3.203s1.434 3.203 3.203 3.203c1.769 0 3.203-1.434 3.203-3.203s-1.434-3.203-3.203-3.203zM9.599 30.717c-1.060 0-1.92-0.86-1.92-1.92s0.86-1.92 1.92-1.92c1.060 0 1.92 0.86 1.92 1.92s-0.86 1.92-1.92 1.92z"></path>
+        </symbol>
+        <symbol id="icon-arrow-top" viewBox="0 0 1000 1000">
+          <path
+            d="M548.838511 957.433932 548.838511 204.953905l270.356474 272.996604 30.720675-70.109778L511.999488 66.566068l-337.916173 341.275687 30.720675 70.109778 270.326798-272.996604 0 752.480027L548.838511 957.434955z"></path>
+        </symbol>
+        <symbol id="icon-arrow-down" viewBox="0 0 1024 1024">
+          <path
+            d="M515.2 92.8l0 755.2-236.8-230.4c-12.8-12.8-32-12.8-44.8 0-12.8 12.8-12.8 32 0 44.8l291.2 284.8c0 0 3.2 0 3.2 3.2 3.2 3.2 3.2 3.2 6.4 3.2 3.2 0 6.4 3.2 9.6 3.2 0 0 0 0 3.2 0 0 0 0 0 0 0 3.2 0 9.6 0 12.8-3.2 3.2-3.2 6.4-3.2 9.6-6.4l288-288c6.4-6.4 9.6-16 9.6-22.4s-3.2-16-9.6-22.4c-12.8-12.8-32-12.8-44.8 0l-233.6 233.59999999L579.2 92.8c0-19.2-12.8-32-32-32S515.2 76.8 515.2 92.8z"></path>
+        </symbol>
+      </defs>
+    </svg>
+
     <page-header></page-header>
     <breaks>
       <span slot="goods1">Goods1</span>
@@ -10,9 +31,9 @@
         <div class="filter-nav">
           <span class="sortby">Sort by:</span>
           <a href="javascript:void(0)" class="default cur">Default</a>
-          <a href="javascript:void(0)" class="price">Price
+          <a @click="sortPrice()" href="javascript:void(0)" class="price">Price
             <svg class="icon icon-arrow-short">
-              <use xlink:href="#icon-arrow-short"></use>
+              <use :xlink:href="priceTopOrDown?'#icon-arrow-top':'#icon-arrow-down'"></use>
             </svg>
           </a>
           <a @click="isFilter()" href="javascript:void(0)" class="filterby stopPop">Filter by</a>
@@ -22,10 +43,10 @@
           <div :class="{'filterby-show':isShowFilter}" class="filter stopPop" id="filter">
             <dl class="filter-price">
               <dt>Price:</dt>
-              <dd @click="isPriceSelected ='All'">
+              <dd @click="setPriceFilter('All')">
                 <a v-bind:class="{cur: isPriceSelected === 'All'}" href="javascript:void(0)">All</a>
               </dd>
-              <dd v-for="(price,index) in priceFilter" @click="isPriceSelected =index">
+              <dd v-for="(price,index) in priceFilter" @click="setPriceFilter(index)">
                 <a @click="closeHidden(index)" v-bind:class="{cur:isPriceSelected===index}" href="javascript:void(0)">{{price.startPrice}} - {{price.endPrice}}</a>
               </dd>
             </dl>
@@ -41,12 +62,17 @@
                   </div>
                   <div class="main">
                     <div class="name">{{goods.productName}}</div>
-                    <div class="price">{{goods.productPrice}}元</div>
+                    <div class="price">{{goods.salePrice}}元</div>
                     <div class="btn-area">
                       <a href="javascript:;" class="btn btn--m">加入购物车</a>
                     </div>
                   </div>
                 </li>
+                <infinite-loading :distance=20 @infinite="infiniteHandler" ref="infiniteLoading">
+                  <span slot="no-more">
+                    我是有底线滴···
+                  </span>
+                </infinite-loading>
               </ul>
             </div>
           </div>
@@ -62,6 +88,7 @@
   import './../../static/css/checkout.css'
   import './../../static/css/login.css'
   import './../../static/css/product.css'
+  import './../../static/css/svg.svg'
 
   import PageHeader from '@/components/PageHeader'
   import PageFooter from './../components/PageFooter'
@@ -69,7 +96,9 @@
   import axios from 'axios'
   import AV from 'leancloud-storage'
   import initLeanCloud from './../../leancloud/initLeanCloud'
+  import InfiniteLoading from 'vue-infinite-loading';
 
+  ;//创建一个全局变量
 
   export default {
     data() {
@@ -93,24 +122,29 @@
             endPrice: 3000
           }
         ],
-        isPriceSelected: 'All',
-        isShowFilter: false,
-        hidden:false
+        isPriceSelected: 'All', //过滤价格
+        isShowFilter: false, //是否显示过滤价格
+        hidden:false,
+        priceTopOrDown:true, //按价格排序
+        skip:0, //跳过多少条数据加载
+        getDataNum:6, //每次请求获取多少条数据
+        isDataLoaded:true //利用懒加载加载更能多，作滚动请求频率限制，在数据未到之前禁止请求
       }
     },
     components: {
       PageHeader,
       PageFooter,
-      Breaks
+      Breaks,
+      InfiniteLoading
     },
     created(){
 //      this.getGoodsData()
     },
     mounted(){
-      this.getGoodsData()
+      //this.getGoodsData()
     },
     methods:{
-      getGoodsData(){
+      getGoodsData($state){
 
         //从leancloud获取数据
 //        axios('./goodsData').then(res=>{
@@ -119,11 +153,50 @@
 //        })
 
         //从leancloud的goodsList对象获取数据
-        var query = new AV.Query('goodsList'),
-            _serverData = [],
+          let query = new AV.Query('goodsList')
+          let _serverData = [],
             _this = this
 
-        //query.greaterThanOrEqualTo('salePrice', 0); //不加这一句就是找到所有的对象
+//        if(false){ //每次请求同样的资源，由服务器排序造成请求浪费，可在本地进行排序
+//          if(this.priceTopOrDown){
+//            query.ascending('salePrice') //对价格进行生序，请求的数据价格是上升的。
+//          } else{
+//            query.descending('salePrice') //对价格进行生序，请求的数据价格是上升的。
+//          }
+//        }
+
+        //query.greaterThanOrEqualTo('salePrice', 100); //比较查询
+
+        if(this.isPriceSelected !== 'All'){
+          let startQueryPrice = new AV.Query('goodsList'),
+              endQueryPrice = new AV.Query('goodsList')
+          switch (this.isPriceSelected){
+            case 0:
+              query.lessThan('salePrice',100)
+              break
+            case 1:
+              startQueryPrice.greaterThanOrEqualTo('salePrice',100);
+              endQueryPrice.lessThan('salePrice',500)
+              query = AV.Query.and(startQueryPrice,endQueryPrice)
+              break
+            case 2:
+              startQueryPrice.greaterThanOrEqualTo('salePrice',500);
+              endQueryPrice.lessThan('salePrice',1000)
+              query = AV.Query.and(startQueryPrice,endQueryPrice)
+              break
+            case 3:
+              startQueryPrice.greaterThanOrEqualTo('salePrice',1000);
+              endQueryPrice.lessThan('salePrice',3000)
+              query = AV.Query.and(startQueryPrice,endQueryPrice)
+              break
+          }
+        }
+
+        query.limit(this.getDataNum);// 最多返回 getDataNum 条结果
+        query.skip(this.skip)
+        this.skip += this.getDataNum
+        console.log(this.skip)
+
         query.find().then(function (results) { //注意异步请求，获取数据需要时间
           //console.log(results,'_serverData1')
           results.forEach((ele)=>{
@@ -131,7 +204,7 @@
           })
 
           //请求到数据之后再请求图片地址
-          var queryFile = new AV.Query('_File'),
+          let queryFile = new AV.Query('_File'), //每次都会请求同样的数据，没有作数据关联
             queryImage = []
 
           queryFile.find().then(function (fileInfo) { //查询图片
@@ -150,27 +223,24 @@
                 }
               }
             })
-            _this.goodsData = _serverData
-            console.log(_serverData,'_serverData')
+
+           _this.goodsData =_this.goodsData.concat(_serverData)
+            $state.loaded()
+            if(_serverData.length<_this.getDataNum){//最后一道请求了。但是当相等时，就不会禁止
+              $state.complete();
+              console.log('completed1')
+            }
+            if(_serverData.length === 0) {
+              $state.complete()
+              console.log('completed2')
+            }
 
           }, function (error) {
             console.error(error,'error_file')
           })
-
-
         }, function (error) {
           console.error(error,'error')
         })
-
-
-      },
-      priceSelected(index){
-        let l = arguments.length
-        if(l===0){
-          this.isPriceSelected = 'All'
-          return
-        }
-        this.isPriceSelected = index
       },
       isFilter(){
         this.isShowFilter=!this.isShowFilter
@@ -179,6 +249,48 @@
       closeHidden(index){
         this.isShowFilter=false
         this.hidden = false
+      },
+      sortPrice(){//对价格进行排序
+        this.priceTopOrDown=!this.priceTopOrDown
+        let _goodsData =JSON.parse(JSON.stringify(this.goodsData)) //深拷贝，但是不需要复制原型上的数值，把排序之后的数据，再赋值给页面数据，减少因每次交换位置，页面渲染性能开销
+
+        if(this.priceTopOrDown){
+          for(let i=0;i<_goodsData.length;i++){ //价格由小到大排序
+
+            for(let j=0;j<_goodsData.length-1-i;j++){
+
+              if(_goodsData[j].salePrice>_goodsData[j+1].salePrice) {
+                let temp = _goodsData[j]
+                _goodsData[j] = _goodsData[j+ 1]
+                _goodsData[j+ 1] = temp
+              }
+            }
+          }
+          this.goodsData = _goodsData
+        }else{
+          for(let i=0;i<_goodsData.length;i++){ //价格由大到小排序
+
+            for(let j=0;j<_goodsData.length-1-i;j++){
+
+              if(_goodsData[j].salePrice<_goodsData[j+1].salePrice) {
+                let temp = _goodsData[j]
+                _goodsData[j] = _goodsData[j+ 1]
+                _goodsData[j+ 1] = temp
+              }
+            }
+          }
+          this.goodsData = _goodsData
+        }
+      },
+      infiniteHandler($state){ //懒加载加载更多
+        this.getGoodsData($state)
+      },
+      setPriceFilter(index){
+        this.isPriceSelected = index
+        this.skip = 0
+        this.goodsData = []
+        this.$refs.infiniteLoading.$emit('$InfiniteLoading:reset');
+        this.getGoodsData()
       }
     }
   }
