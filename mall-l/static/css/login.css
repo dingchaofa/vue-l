@@ -1,80 +1,98 @@
-.regi_form_input{
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  color: #6a6f8c;
+  background: #c8c8c8;
+  font: 600 16px/18px 'Open Sans',sans-serif;
+}
+#wrap {
+  width: 100%;
+  margin: auto;
+  max-width: 525px;
+  min-height: 670px;
   position: relative;
-  height: 42px;
-  line-height: 42px;
-  background: none;
-  margin-bottom: 15px;
-  font-size: 14px;
-  overflow: hidden;
-  border:1px solid #ccc;
-  padding-bottom: 0;
+  background: url('../images/rouge-baiser.jpg') no-repeat center;
+  background-size: cover;
+  box-shadow: 0 12px 15px 0 rgba(0,0,0,.24), 0 17px 50px 0 rgba(0,0,0,.19);
 }
-.regi_form_input .icon {
+.contain {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  padding: 90px 70px 50px 70px;
+  background: rgba(40,57,101,.9);
+}
+.tab {
+  font-size: 22px;
+  margin-right: 15px;
+  padding-bottom: 5px;
+  margin: 0 15px 10px 0;
   display: inline-block;
-  float: left;
-  width: 25px;
-  height: 29px;
-  margin: 6px 0 0 14px;
-  background-position: 4px 5px;
-  background-image: url("/static/icon.png");
-  background-repeat: no-repeat;
+  border-bottom: 2px solid transparent;
 }
-.regi_form_input .IconPwd {
-  background-position: -198px 3px;
+.tabUp,.tabIn{
+  display: none;
 }
-.regi_form_input .regi_login_input{
+.tabUp:checked+label.tab, .tabIn:checked+label.tab {
+  border-color: #1161ee;
+  color: white;
+}
+.formContain {
+  min-height: 345px;
+  position: relative;
+  margin-top: 44px;
+  transform-style: preserve-3d;
+}
+.formContain .signUp,.formContain .login {
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
   position: absolute;
-  left:45px;
-  top:0;
-  padding: 9px 0 10px;
-  width: 270px;
-  font-size: 14px;
-  zoom: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: all 0.7s ease-in-out;
+}
+.tabIn:checked ~ .formContain .login,
+.tabUp:checked ~ .formContain .signUp {
+  transform: rotate(0)
+}
+.formContain form>div {
+  margin-bottom: 15px;
+}
+.formContain label {
+  color: #aaa;
+  font-size: 12px;
+}
+.formContain form>div input {
   border: none;
-  color: #333;
-  /*height: 23px;*/
-  line-height: 23px;
-  background: 0 0!important;
-}
-.md-title{
-  position: absolute;
-  top: 14px;
-  line-height: 24px;
-  padding: 8px 0;
-  color: #333;
-  font-size: 18px;
-  font-weight: 400;
-  font-style: normal;
-}
-.login-wrap{
-  margin-top:30px;
-}
-.md-content .btn-login{
-  display: block;
-  height: 38px;
-  line-height: 38px;
-  border: 2px solid #009de6;
-  background: #009de6;
+  padding: 15px 20px;
+  border-radius: 25px;
+  background: rgba(255,255,255,.1);
+  width: 100%;
   color: #fff;
-  font-size: 18px;
+  display: block;
+  outline: none;
+}
+.signUp input[type="submit"], .login input[type="submit"] {
+  background-color: blue;
+  margin-top: 35px;
+}
+.formContain .hr {
+  height: 2px;
+  margin: 50px 0 50px 0;
+  background: rgba(255,255,255,.2);
+}
+.footLink {
   text-align: center;
 }
-.btn-login:hover {
-  background: #61b1ef;
-  border: 2px solid #61b1ef;
-}
-.error-wrap .error{
-  font-size: 12px;
-  color: #d31723;
-  visibility: hidden;
-  display: block;
-  padding: 0 0 7px 17px;
-  line-height: 16px;
-  height: 16px;
-  text-align: left;
-  background: url("/static/icon.png") 0 -100px no-repeat;
-}
-.md-content .error-wrap .error-show{
-  visibility: visible;
-  height: auto;
+.footLink a,
+.footLink label{
+  color: #6a6f8c;
+  text-decoration: none;
+  font-size: 16px;
 }
