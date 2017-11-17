@@ -3,12 +3,6 @@
   padding:0;
   box-sizing: border-box;
 }
-body {
-  margin: 0;
-  color: #6a6f8c;
-  background: #c8c8c8;
-  font: 600 16px/18px 'Open Sans',sans-serif;
-}
 #wrap {
   width: 100%;
   margin: auto;
@@ -18,13 +12,14 @@ body {
   background: url('../images/rouge-baiser.jpg') no-repeat center;
   background-size: cover;
   box-shadow: 0 12px 15px 0 rgba(0,0,0,.24), 0 17px 50px 0 rgba(0,0,0,.19);
+  transform: translateY(12%);
 }
 .contain {
   width: 100%;
   height: 100%;
   position: absolute;
   padding: 90px 70px 50px 70px;
-  background: rgba(40,57,101,.9);
+  background: rgba(222, 107, 88, 0.37);
 }
 .tab {
   font-size: 22px;
@@ -62,29 +57,29 @@ body {
   transform: rotate(0)
 }
 .formContain form>div {
-  margin-bottom: 15px;
+  /*margin-bottom: 15px;*/
 }
 .formContain label {
-  color: #aaa;
+  color: #f3f5f3;
   font-size: 12px;
 }
 .formContain form>div input {
   border: none;
   padding: 15px 20px;
   border-radius: 25px;
-  background: rgba(255,255,255,.1);
+  background: rgba(242, 172, 145, 0.25);;
   width: 100%;
   color: #fff;
   display: block;
   outline: none;
 }
 .signUp input[type="submit"], .login input[type="submit"] {
-  background-color: blue;
-  margin-top: 35px;
+  background-color: rgba(221, 108, 93, 0.78);;
+  margin-top: 18px;
 }
 .formContain .hr {
   height: 2px;
-  margin: 50px 0 50px 0;
+  margin: 30px 0px 9px 0;
   background: rgba(255,255,255,.2);
 }
 .footLink {
@@ -92,7 +87,13 @@ body {
 }
 .footLink a,
 .footLink label{
-  color: #6a6f8c;
+  color: #f8f3ed;
   text-decoration: none;
   font-size: 16px;
+}
+#wrap form div span {
+  color: #eff904;
+  height: 20px;
+  line-height: 30px;
+  display: inline-block;
 }
