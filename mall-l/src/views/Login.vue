@@ -135,7 +135,8 @@ import AV from 'leancloud-storage'
         }
 
         AV.User.logIn(this.username, this.password).then(function (loginedUser) {
-          console.log('loginedUser login',loginedUser);
+          //console.log('loginedUser login',loginedUser);
+          //在用户登录的时候，为用户创建购物车栏，地址栏等等，最好是在后台做好这些用户属性
           document.location.hash = '#/goodslist'
         }, (err)=>{
           console.log('err',err)

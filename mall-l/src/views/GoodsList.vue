@@ -44,7 +44,7 @@
                     <div class="name">{{goods.productName}}</div>
                     <div class="price">{{goods.salePrice}}元</div>
                     <div class="btn-area">
-                      <a href="javascript:;" class="btn btn--m">加入购物车</a>
+                      <a href="javascript:;" @click="addCart(goods)" class="btn btn--m">加入购物车</a>
                     </div>
                   </div>
                 </li>
@@ -107,7 +107,8 @@
         priceTopOrDown:true, //按价格排序
         skip:0, //跳过多少条数据加载
         getDataNum:6, //每次请求获取多少条数据
-        isDataLoaded:true //利用懒加载加载更能多，作滚动请求频率限制，在数据未到之前禁止请求
+        isDataLoaded:true, //利用懒加载加载更能多，作滚动请求频率限制，在数据未到之前禁止请求
+        currentUser: {}//当前用户
       }
     },
     components: {
@@ -122,6 +123,7 @@
     },
     mounted(){
       //this.getGoodsData()
+      this.getCurrentUser()
     },
     methods:{
       getGoodsData($state){
@@ -175,14 +177,14 @@
         query.limit(this.getDataNum);// 最多返回 getDataNum 条结果
         query.skip(this.skip)
         this.skip += this.getDataNum
-        console.log(this.skip)
 
         query.find().then(function (results) { //注意异步请求，获取数据需要时间
           //console.log(results,'_serverData1')
-          results.forEach((ele)=>{
-            _serverData.push(ele._serverData)
+          results.forEach((ele,index)=>{
+            _serverData.push(ele._serverData) //由于_serverData带有不需要的数据，故而需要创建一个新的对象，把需要的数据传进去
+            _serverData[index].objectId = ele.id //把服务器创建的objectId添加进去
           })
-
+          //console.log('_serverData',_serverData)
           //请求到数据之后再请求图片地址
           let queryFile = new AV.Query('_File'), //每次都会请求同样的数据，没有作数据关联
             queryImage = []
@@ -200,6 +202,7 @@
               for(var i=0;i<queryImage.length;i++){
                 if(ele.productImage===queryImage[i].name){
                   ele.productUrl = queryImage[i].url
+                  break //如果查到了就不要继续遍历了
                 }
               }
             })
@@ -270,6 +273,55 @@
         this.goodsData = []
         this.$refs.infiniteLoading.$emit('$InfiniteLoading:reset');
         this.getGoodsData()
+      },
+      getCurrentUser(){
+        let currentUser = AV.User.current()
+        if (currentUser) {
+          //console.log('currentUser', currentUser)
+          this.currentUser.name = currentUser._serverData.username
+          this.currentUser.objectId = currentUser.id
+          return this.currentUser
+        }
+      },
+      addCart(goods){
+        if(this.currentUser){//如果登录了
+          //查找购物车里是否有这个商品
+          //根据商品的objectId，来查询购物车是否有这个商品，如果有就+1，如果没有就添加
+          let query = new AV.Query('_User')
+
+          query.get(this.currentUser.objectId).then((result)=>{
+            //console.log('result',result)
+            let cartList =  result.get('cartList')
+            let user = AV.Object.createWithoutData('_User', this.currentUser.objectId);
+            let isGoods = false
+            for (let i=0;i<cartList.length;i++){
+              if(cartList[i].objectId===goods.objectId){
+                cartList[i].productNum ++
+                user.set('cartList',cartList)
+                user.save().then((result=>{
+                  //console.log('保存成功返回的结果',result)
+                }),(err)=>{
+                  console.log('保存失败',err)
+                })
+                isGoods = true
+                break
+              }
+            }
+
+            if(!isGoods){//如果遍历完成之后没有找到，就新加
+              goods.productNum = 1 //新添加的时候为1
+              //console.log('goods',goods)
+              user.addUnique('cartList',goods)
+              user.save().then((result=>{
+                //console.log('保存成功返回的结果',result)
+              }),(err)=>{
+                console.log('保存失败',err)
+              })
+            }
+          },(err)=>{
+            console.log('查询失败',err)
+          })
+        }
       }
     }
   }
