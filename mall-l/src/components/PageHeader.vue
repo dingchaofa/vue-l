@@ -30,21 +30,41 @@
   import AV from 'leancloud-storage'
 
   export default {
-    props:['currentUser'],
     data() {
       return {
-
+        currentUser: {//当前用户
+          name:'',
+          objectId:''
+        }
       }
     },
     mounted() {
-
+      this.getCurrentUser()
     },
     methods: {
       goLogin(){
         document.location.hash = '#/login'
       },
-      logout(){
-        this.$emit('logout')
+      getCurrentUser(){
+        let currentUser = AV.User.current()
+        if (currentUser) {
+          //console.log('currentUser', currentUser)
+          this.currentUser.name = currentUser._serverData.username
+          this.currentUser.objectId = currentUser.id
+          return this.currentUser
+        }
+      },
+      logout() {
+        if(this.currentUser.name){
+          AV.User.logOut()
+          this.currentUser = {
+            name:'',
+            objectId:''
+          }
+          console.log('logout')
+        }else{
+          console.log('还未登录')
+        }
       }
     }
   }

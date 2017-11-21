@@ -72,6 +72,10 @@ npm run build --report
   * 加入购物车成功模态框
   * 父子组件之间的多种通信方式（props、事件、ref、slot）。
 
+10.
+  * 增加购物车页面
+  * 从leancloud的用户类的cartList拉取数据
+
 #### 注意事项
 
 1. 数据异步请求，注意请求数据的处理顺序

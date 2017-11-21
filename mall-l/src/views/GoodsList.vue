@@ -1,10 +1,9 @@
 <template>
   <div>
     <svg-icon></svg-icon>
-    <page-header @logout="logout()" :currentUser="currentUser"></page-header>
+    <page-header ref="currentUser"></page-header>
     <breaks>
-      <span slot="goods1">Goods1</span>
-      <span slot="goods2">Goods2</span>
+      <span>GoodsList</span>
     </breaks>
     <div class="accessory-result-page accessory-page">
       <div class="container">
@@ -64,20 +63,20 @@
     </div>
     <div class="md-overlay" @click="closeHidden()" v-show="hidden"></div>
     <page-footer></page-footer>
-    <Modal :showModal="showCartModal" @closeModal="closeModal()">
+    <modal :showModal="showCartModal" @closeModal="closeModal()">
       <svg slot="header" class="icon icon-success">
         <use xlink:href="#icon-success"></use>
       </svg>
       <h1 slot="header">加入购物车成功</h1>
-      <a slot="footer" href="javascript:;">去购物车</a>
+      <router-link slot="footer" to="/cart">查看购物车</router-link>
       <a slot="footer" href="javascript:;" @click="closeModal()">继续购物</a>
-    </Modal>
-    <Modal :showModal="showLoginModal" @closeModal="closeModal()">
+    </modal>
+    <modal :showModal="showLoginModal" @closeModal="closeModal()">
       <h1 slot="header">未登录，无法加入购物车</h1>
       <!--<a slot="footer" href="javascript:;" ></a>-->
       <router-link slot="footer" to="/login">去登录</router-link>
       <a slot="footer" href="javascript:;" @click="closeModal()">关闭</a>
-    </Modal>
+    </modal>
   </div>
 </template>
 
@@ -102,7 +101,6 @@
 </style>
 
 <script>
-  import './../../static/css/checkout.css'
   import './../../static/css/login.css'
   import './../../static/css/product.css'
 
@@ -147,10 +145,6 @@
         skip:0, //跳过多少条数据加载
         getDataNum:6, //每次请求获取多少条数据
         isDataLoaded:true, //利用懒加载加载更能多，作滚动请求频率限制，在数据未到之前禁止请求
-        currentUser: {
-          name:'',
-          objectId:''
-        },//当前用户
         showCartModal:false, //加入购物车模态框
         showLoginModal:false //提示登录模态框
       }
@@ -168,8 +162,7 @@
     },
     mounted(){
       //this.getGoodsData()
-      this.getCurrentUser()
-      //this.flyToCart()
+
     },
     methods:{
       getGoodsData($state){
@@ -320,37 +313,18 @@
         this.$refs.infiniteLoading.$emit('$InfiniteLoading:reset');
         this.getGoodsData()
       },
-      logout() {
-        if(this.currentUser.name){
-          AV.User.logOut()
-          this.currentUser = {
-            name:'',
-            objectId:''
-          }
-          console.log('logout')
-        }else{
-          console.log('还未登录')
-        }
-      },
-      getCurrentUser(){
-        let currentUser = AV.User.current()
-        if (currentUser) {
-          //console.log('currentUser', currentUser)
-          this.currentUser.name = currentUser._serverData.username
-          this.currentUser.objectId = currentUser.id
-          return this.currentUser
-        }
-      },
       addCart(goods){
-        if(this.currentUser.name){//如果登录了
+        let currentUser = this.$refs.currentUser.currentUser
+        console.log(currentUser)
+        if(currentUser.name){//如果登录了
           //查找购物车里是否有这个商品
           //根据商品的objectId，来查询购物车是否有这个商品，如果有就+1，如果没有就添加
           let query = new AV.Query('_User')
 
-          query.get(this.currentUser.objectId).then(result=>{
+          query.get(currentUser.objectId).then(result=>{
             //console.log('result',result)
             let cartList =  result.get('cartList')
-            let user = AV.Object.createWithoutData('_User', this.currentUser.objectId);
+            let user = AV.Object.createWithoutData('_User', currentUser.objectId);
             let isGoods = false
             for (let i=0;i<cartList.length;i++){
               if(cartList[i].objectId===goods.objectId){
@@ -389,9 +363,6 @@
       closeModal(){
         this.showCartModal = false
         this.showLoginModal = false
-      },
-      flyToCart(){
-
       }
     }
   }
