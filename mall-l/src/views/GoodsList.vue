@@ -1,7 +1,7 @@
 <template>
   <div>
     <svg-icon></svg-icon>
-    <page-header></page-header>
+    <page-header @logout="logout()" :currentUser="currentUser"></page-header>
     <breaks>
       <span slot="goods1">Goods1</span>
       <span slot="goods2">Goods2</span>
@@ -45,6 +45,9 @@
                     <div class="price">{{goods.salePrice}}元</div>
                     <div class="btn-area">
                       <a href="javascript:;" @click="addCart(goods)" class="btn btn--m">加入购物车</a>
+                      <!--<div class="fly-to-cart">-->
+                        <!--<img :src="goods.productUrl" alt="">-->
+                      <!--</div>-->
                     </div>
                   </div>
                 </li>
@@ -61,8 +64,43 @@
     </div>
     <div class="md-overlay" @click="closeHidden()" v-show="hidden"></div>
     <page-footer></page-footer>
+    <Modal :showModal="showCartModal" @closeModal="closeModal()">
+      <svg slot="header" class="icon icon-success">
+        <use xlink:href="#icon-success"></use>
+      </svg>
+      <h1 slot="header">加入购物车成功</h1>
+      <a slot="footer" href="javascript:;">去购物车</a>
+      <a slot="footer" href="javascript:;" @click="closeModal()">继续购物</a>
+    </Modal>
+    <Modal :showModal="showLoginModal" @closeModal="closeModal()">
+      <h1 slot="header">未登录，无法加入购物车</h1>
+      <!--<a slot="footer" href="javascript:;" ></a>-->
+      <router-link slot="footer" to="/login">去登录</router-link>
+      <a slot="footer" href="javascript:;" @click="closeModal()">关闭</a>
+    </Modal>
   </div>
 </template>
+
+<style>
+  .fly-to-cart{
+    /*display: none;*/
+    position: fixed;
+  }
+  .fly-to-cart img{
+    width:50px;
+    border-radius:50%;
+    position: relative;
+    top: -40px;
+    left: 40px;
+  }
+  .fly-to-cart-animation {
+    animation:fly-to-cart-animation 1s ease-out;
+  }
+  @keyframes fly-to-cart-animation {
+
+  }
+</style>
+
 <script>
   import './../../static/css/checkout.css'
   import './../../static/css/login.css'
@@ -76,6 +114,7 @@
   import AV from 'leancloud-storage'
   import initLeanCloud from './../../leancloud/initLeanCloud'
   import InfiniteLoading from 'vue-infinite-loading';
+  import Modal from './../components/Modal.vue'
 
   ;//创建一个全局变量
 
@@ -108,7 +147,12 @@
         skip:0, //跳过多少条数据加载
         getDataNum:6, //每次请求获取多少条数据
         isDataLoaded:true, //利用懒加载加载更能多，作滚动请求频率限制，在数据未到之前禁止请求
-        currentUser: {}//当前用户
+        currentUser: {
+          name:'',
+          objectId:''
+        },//当前用户
+        showCartModal:false, //加入购物车模态框
+        showLoginModal:false //提示登录模态框
       }
     },
     components: {
@@ -116,7 +160,8 @@
       PageFooter,
       Breaks,
       InfiniteLoading,
-      SvgIcon
+      SvgIcon,
+      Modal
     },
     created(){
 //      this.getGoodsData()
@@ -124,6 +169,7 @@
     mounted(){
       //this.getGoodsData()
       this.getCurrentUser()
+      //this.flyToCart()
     },
     methods:{
       getGoodsData($state){
@@ -274,6 +320,18 @@
         this.$refs.infiniteLoading.$emit('$InfiniteLoading:reset');
         this.getGoodsData()
       },
+      logout() {
+        if(this.currentUser.name){
+          AV.User.logOut()
+          this.currentUser = {
+            name:'',
+            objectId:''
+          }
+          console.log('logout')
+        }else{
+          console.log('还未登录')
+        }
+      },
       getCurrentUser(){
         let currentUser = AV.User.current()
         if (currentUser) {
@@ -284,12 +342,12 @@
         }
       },
       addCart(goods){
-        if(this.currentUser){//如果登录了
+        if(this.currentUser.name){//如果登录了
           //查找购物车里是否有这个商品
           //根据商品的objectId，来查询购物车是否有这个商品，如果有就+1，如果没有就添加
           let query = new AV.Query('_User')
 
-          query.get(this.currentUser.objectId).then((result)=>{
+          query.get(this.currentUser.objectId).then(result=>{
             //console.log('result',result)
             let cartList =  result.get('cartList')
             let user = AV.Object.createWithoutData('_User', this.currentUser.objectId);
@@ -300,6 +358,7 @@
                 user.set('cartList',cartList)
                 user.save().then((result=>{
                   //console.log('保存成功返回的结果',result)
+                  this.showCartModal = true
                 }),(err)=>{
                   console.log('保存失败',err)
                 })
@@ -314,6 +373,7 @@
               user.addUnique('cartList',goods)
               user.save().then((result=>{
                 //console.log('保存成功返回的结果',result)
+                this.showCartModal = true
               }),(err)=>{
                 console.log('保存失败',err)
               })
@@ -321,7 +381,17 @@
           },(err)=>{
             console.log('查询失败',err)
           })
+
+        }else{
+          this.showLoginModal = true
         }
+      },
+      closeModal(){
+        this.showCartModal = false
+        this.showLoginModal = false
+      },
+      flyToCart(){
+
       }
     }
   }
