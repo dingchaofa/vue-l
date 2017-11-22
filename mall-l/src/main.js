@@ -3,11 +3,13 @@
 import Vue from 'vue'
 import VueLazyLoad from 'vue-lazyload'
 import Router from 'vue-router'
+import {currency} from './../static/js/currency'
 
 import HelloWorld from '@/components/HelloWorld'
 import Login from './views/Login'
 import GoodsList from './views/GoodsList'
 import Cart from './views/Cart'
+
 
 Vue.config.productionTip = false
 
@@ -38,6 +40,7 @@ const router = new Router({
   ]
 })
 
+Vue.filter('currency',currency)
 
 new Vue({
   el: '#app',
