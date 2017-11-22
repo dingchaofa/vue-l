@@ -17,15 +17,11 @@
 </template>
 
 <script>
-  import SvgIcon from './../components/SvgIcon.vue'
   export default {
     props:['showModal'],
     data(){
       return {
       }
-    },
-    components:{
-      SvgIcon
     },
     methods:{
       closeModal(){

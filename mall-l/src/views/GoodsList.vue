@@ -96,7 +96,7 @@
     animation:fly-to-cart-animation 1s ease-out;
   }
   @keyframes fly-to-cart-animation {
-
+    /* 暂时不会操作DOM，故而取消 */
   }
 </style>
 
@@ -315,7 +315,7 @@
       },
       addCart(goods){
         let currentUser = this.$refs.currentUser.currentUser
-        console.log(currentUser)
+        //console.log(currentUser)
         if(currentUser.name){//如果登录了
           //查找购物车里是否有这个商品
           //根据商品的objectId，来查询购物车是否有这个商品，如果有就+1，如果没有就添加
@@ -343,6 +343,7 @@
 
             if(!isGoods){//如果遍历完成之后没有找到，就新加
               goods.productNum = 1 //新添加的时候为1
+              goods.checked = 0
               //console.log('goods',goods)
               user.addUnique('cartList',goods)
               user.save().then((result=>{
