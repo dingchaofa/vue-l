@@ -165,7 +165,7 @@ html {
 .addr-list li .address {
   height: 2.8517em;
   overflow: hidden; }
-.addr-list li .tel {
+.addr-list li .address {
   color: #605F5F;
   line-height: 1.2142; }
 .addr-list li .addr-opration {

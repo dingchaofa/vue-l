@@ -487,6 +487,12 @@ a:hover {
   -webkit-transition: color .3s ease-out;
   transition: color .3s ease-out;
 }
+#modal a:hover {
+  color: #d1434a;
+  -webkit-transition: color .3s ease-out;
+  transition: color .3s ease-out;
+  background: rgba(239, 54, 65, 0.4);
+}
 
 /** the page max width **/
 .container {
@@ -2524,4 +2530,10 @@ html {
 .social-share-open .lemall-social_btn:hover svg {
   fill: #fff;
   stroke: #fff;
+}
+
+svg.icon.icon-tip {
+  width: 30px;
+  height: 30px;
+  margin-top: 5px;
 }

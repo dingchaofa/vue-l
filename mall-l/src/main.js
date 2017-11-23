@@ -9,6 +9,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Login from './views/Login'
 import GoodsList from './views/GoodsList'
 import Cart from './views/Cart'
+import Address from './views/Address'
 
 
 Vue.config.productionTip = false
@@ -36,6 +37,10 @@ const router = new Router({
     {
       path: '/cart',
       component: Cart
+    },
+    {
+      path: '/address',
+      component: Address
     }
   ]
 })

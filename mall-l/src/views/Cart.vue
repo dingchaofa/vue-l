@@ -86,7 +86,7 @@
               Item total: <span class="total-price">{{sumPrice | currency}}</span>
             </div>
             <div class="btn-wrap">
-              <a class="btn btn--red">Checkout</a>
+              <a class="btn btn--red" :class="[ sumPrice>0 ? '':'btn--dis']" href="/#/address">Checkout</a>
             </div>
           </div>
         </div>
@@ -159,9 +159,9 @@
     },
     methods: {
       getGoodsList() {
-        let currentUser = this.$refs.currentUser.currentUser
+        this.currentUser = this.$refs.currentUser.currentUser
         let query = new AV.Query('_User')
-        query.get(currentUser.objectId).then(result=>{
+        query.get(this.currentUser.objectId).then(result=>{
           this.goodsData =  result.get('cartList')
         })
       },
@@ -175,7 +175,6 @@
         this.editedSave()
       },
       editedSave(){
-        this.currentUser = this.$refs.currentUser.currentUser
         let user = AV.Object.createWithoutData('_User', this.currentUser.objectId);
 
         let cartList = this.goodsData
@@ -242,10 +241,4 @@
     transform: scale(1.5);
     vertical-align: top;
   }
-  svg.icon.icon-tip {
-    width: 30px;
-    height: 30px;
-    margin-top: 5px;
-  }
-
 </style>
