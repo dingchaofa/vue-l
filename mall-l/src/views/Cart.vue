@@ -3,21 +3,21 @@
     <svg-icon></svg-icon>
     <page-header ref="currentUser"></page-header>
     <breaks>
-      <span>My Cart</span>
+      <span>购物车</span>
     </breaks>
-    <div class="cart">
+    <div class="cart margin-header">
       <div class="page-title-normal">
-        <h2 class="page-title-h2"><span>My Cart</span></h2>
+        <h2 class="page-title-h2"><span>我的购物车</span></h2>
       </div>
       <div class="item-list-wrap">
         <div class="cart-item">
           <div class="cart-item-head">
             <ul>
-              <li>Items</li>
-              <li>Price</li>
-              <li>Quantity</li>
-              <li>Subtotal</li>
-              <li>Edit</li>
+              <li>商品信息</li>
+              <li>单价</li>
+              <li>数量</li>
+              <li>金额</li>
+              <li>编辑</li>
             </ul>
           </div>
           <ul class="cart-item-list">
@@ -52,7 +52,7 @@
                 </div>
               </div>
               <div class="cart-tab-4">
-                <div class="item-price-total">{{goods.salePrice * goods.productNum | currency}}</div>
+                <div class="item-price-total">{{goods.salePrice * goods.productNum | currency('¥')}}</div>
               </div>
               <div class="cart-tab-5">
                 <div class="cart-item-opration">
@@ -77,16 +77,16 @@
                       <use xlink:href="#icon-success" v-show="checkedAllGoods"></use>
                     </svg>
                   </span>
-                <span>Select all</span>
+                <span>全部</span>
               </a>
             </div>
           </div>
           <div class="cart-foot-r">
             <div class="item-total">
-              Item total: <span class="total-price">{{sumPrice | currency}}</span>
+              Item total: <span class="total-price">{{sumPrice | currency('¥')}}</span>
             </div>
             <div class="btn-wrap">
-              <a class="btn btn--red" :class="[ sumPrice>0 ? '':'btn--dis']" href="/#/address">Checkout</a>
+              <a class="btn btn--red" :class="[ sumPrice>0 ? '':'btn--dis']" href="/#/address">确认订单</a>
             </div>
           </div>
         </div>

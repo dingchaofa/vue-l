@@ -3,26 +3,19 @@
     <svg-icon></svg-icon>
     <page-header ref="currentUser"></page-header>
     <breaks>
-      <span>My Cart</span>
+      <span>配送地址</span>
     </breaks>
-    <div class="container">
+    <div class="container margin-header">
       <div class="checkout-addr">
         <div class="page-title-normal">
-          <h2 class="page-title-h2"><span>check out</span></h2>
+          <h2 class="page-title-h2"><span>订单</span></h2>
         </div>
         <!-- process step -->
-        <div class="check-step">
-          <ul>
-            <li class="cur"><span>Confirm</span> address</li>
-            <li><span>View your</span> order</li>
-            <li><span>Make</span> payment</li>
-            <li><span>Order</span> confirmation</li>
-          </ul>
-        </div>
+        <shipping-process :address="true"></shipping-process>
 
         <!-- address list -->
         <div class="page-title-normal checkout-title">
-          <h2><span>Shipping address</span></h2>
+          <h2><span>收货地址</span></h2>
         </div>
         <div class="addr-list-wrap">
           <div class="addr-list">
@@ -49,7 +42,7 @@
                   <i class="icon-add">
                     <svg class="icon icon-add"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-add"></use></svg>
                   </i>
-                  <p>Add new address</p>
+                  <p>新增收货地址</p>
                 </div>
               </li>
             </ul>
@@ -67,26 +60,26 @@
 
         <!-- shipping method-->
         <div class="page-title-normal checkout-title">
-          <h2><span>Shipping method</span></h2>
+          <h2><span>配送方式</span></h2>
         </div>
         <div class="lemall-msg-info hidden">
-          <span>The region you selected is not within our delivery area. Please select another shipping address within our delivery areas.</span>
+          <span>普通配送快递 邮费10元</span>
         </div>
         <div class="shipping-method-wrap">
           <div class="shipping-method">
             <ul>
               <li class="check">
-                <div class="name">Standard shipping</div>
-                <div class="price">Free</div>
+                <div class="name">普通配送</div>
+                <div class="price">免费配送</div>
                 <div class="shipping-tips">
-                  <p>Once shipped，Order should arrive in the destination in 1-7 business days</p>
+                  <p>一旦发货，宝贝将在7个工作日内到达</p>
                 </div>
               </li>
             </ul>
           </div>
         </div>
         <div class="next-btn-wrap">
-          <a class="btn btn--m btn--red">Next</a>
+          <a class="btn btn--m" :class="[(checkedAddress==='')?'btn--dis':'btn--red']" @click="next()">下一步</a>
         </div>
       </div>
     </div>
@@ -125,6 +118,7 @@
   import Breaks from './../components/Breaks'
   import SvgIcon from './../components/SvgIcon'
   import Modal from './../components/Modal'
+  import ShippingProcess from './../components/ShippingProcess'
 
   export default {
     data() {
@@ -155,7 +149,8 @@
       PageFooter,
       Breaks,
       SvgIcon,
-      Modal
+      Modal,
+      ShippingProcess
     },
     methods:{
       closeModal(){
@@ -168,7 +163,6 @@
         query.get(this.currentUser.objectId).then(result=>{
           this.addressList =  result.get('addressList')
           console.log('从leancloud获取地址列表数据')
-
         },err=>{
           console.log('获取地址列表出错',err)
         })
@@ -254,6 +248,19 @@
         if(arguments.length){
           this.addressList[index].isDefault = true
         }
+      },
+      next(){
+
+        if(this.checkedAddress===""){
+          return
+        }
+        console.log(this.$router)
+        this.$router.push({
+          path:'/orderList',
+          query:{
+            checkedAddress:this.checkedAddress
+          }
+        })
       }
     }
   }

@@ -538,6 +538,7 @@ a:hover {
   padding: 10px 0;
   line-height: 25px;
   font-size: 14px;
+  float: left;
 }
 
 .nav-breadcrumb a {
@@ -574,6 +575,7 @@ a:hover {
   text-transform: uppercase;
   letter-spacing: .25em;
   font-weight: bold;
+  text-align: left;
 }
 
 .section-title-normal {
@@ -2536,4 +2538,7 @@ svg.icon.icon-tip {
   width: 30px;
   height: 30px;
   margin-top: 5px;
+}
+.margin-header {
+  margin-top:150px;
 }

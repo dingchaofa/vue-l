@@ -10,6 +10,7 @@ import Login from './views/Login'
 import GoodsList from './views/GoodsList'
 import Cart from './views/Cart'
 import Address from './views/Address'
+import OrderList from './views/OrderList'
 
 
 Vue.config.productionTip = false
@@ -41,6 +42,10 @@ const router = new Router({
     {
       path: '/address',
       component: Address
+    },
+    {
+      path: '/orderList',
+      component: OrderList
     }
   ]
 })
