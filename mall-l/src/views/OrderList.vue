@@ -59,6 +59,11 @@
 
       <!-- Price count -->
       <div class="price-count-wrap">
+        <dl class="address-wrap">
+          <dt>收件人姓名：{{address.name}}</dt>
+          <dd>收件人电话：{{address.tel}}</dd>
+          <dd>收件人地址：{{address.address}}</dd>
+        </dl>
         <div class="price-count">
           <ul>
             <li>
@@ -75,7 +80,7 @@
             </li>
             <li class="order-total-price">
               <span>总金额:</span>
-              <span>{{orderSumMoney}}</span>
+              <span>{{orderSumMoney | currency('¥')}}</span>
             </li>
           </ul>
         </div>
@@ -83,10 +88,10 @@
 
       <div class="order-foot-wrap">
         <div class="prev-btn-wrap">
-          <!--<button class="btn btn&#45;&#45;m"></button>-->
+          <!--<button class="btn btn&#45;&#45;m">返回</button>-->
         </div>
         <div class="next-btn-wrap">
-          <button class="btn btn--m btn--red">去支付</button>
+          <button class="btn btn--m btn--dis">去支付</button>
         </div>
       </div>
     </div>
@@ -102,13 +107,15 @@
   import SvgIcon from './../components/SvgIcon'
   import Modal from './../components/Modal'
   import ShippingProcess from './../components/ShippingProcess'
+  import bus from '@/../static/js/bus'
   export default {
     data(){
       return {
         orderList:[],
         orderMoney:0,
         postage:10,
-        discount:0
+        discount:0,
+        address:{}
       }
     },
     components: {
@@ -129,6 +136,7 @@
     },
     methods:{
       getOrderList(){
+        let index = this.$router.currentRoute.query.checkedAddress
         this.currentUser = this.$refs.currentUser.currentUser
         let query = new AV.Query('_User')
         query.get(this.currentUser.objectId).then(result=>{
@@ -139,8 +147,10 @@
               return true
             }
           })
+          let addressList =  result.get('addressList') //获取选中的地址
+          this.address = addressList[index]
 
-          console.log(this.orderList)
+          console.log(this.address)
           console.log('从leancloud获取购物车选中的列表数据')
         },err=>{
           console.log('获取地址列表出错',err)
@@ -151,5 +161,13 @@
 </script>
 
 <style>
-
+  dl.address-wrap {
+    max-width: 250px;
+    padding: 10px 0 0 10px;
+    font-size: 18px;
+    color: #999;
+  }
+  dl.address-wrap dd {
+    margin-top:10px;
+  }
 </style>

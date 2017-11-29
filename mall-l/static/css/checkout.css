@@ -970,7 +970,9 @@ html {
   margin-bottom: 60px; }
 
 .price-count-wrap {
-  margin-bottom: 20px; }
+  display: flex;
+  justify-content: space-between;
+}
 
 .order-foot-wrap .prev-btn-wrap {
   float: left; }
