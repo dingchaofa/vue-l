@@ -3,9 +3,10 @@
 import Vue from 'vue'
 import VueLazyLoad from 'vue-lazyload'
 import Router from 'vue-router'
+import Vuex from 'vuex'
 import {currency} from './../static/js/currency'
+import AV from 'leancloud-storage'
 
-import HelloWorld from '@/components/HelloWorld'
 import Login from './views/Login'
 import GoodsList from './views/GoodsList'
 import Cart from './views/Cart'
@@ -18,6 +19,42 @@ Vue.config.productionTip = false
 Vue.use(VueLazyLoad,{
   loading:'../static/images/loading-svg/loading-bars.svg'
 })
+
+Vue.use(Vuex)
+const store = new Vuex.Store({
+  state:{
+    currentUser:{
+      username:'',
+      objectId:''
+    },
+    cartNum:''
+  },
+  mutations:{
+    getCurrentUser(state){
+      let currentUser = AV.User.current()
+      if(!currentUser){
+
+        return
+      }
+      state.currentUser.username = currentUser._serverData.username
+      state.currentUser.objectId = currentUser.id
+
+    },
+    logout(state){
+      AV.User.logOut()
+      state.currentUser = {
+        username:'',
+        objectId:''
+      }
+      console.log('logout')
+    },
+    getCartNum(state){
+      state.cartNum = Math.random()
+    }
+  }
+})
+
+
 
 Vue.use(Router)
 
@@ -54,7 +91,17 @@ Vue.filter('currency',currency)
 
 new Vue({
   el: '#app',
-  router
+  store,
+  router,
+  created(){
+    store.commit('getCurrentUser')
+  },
+  mounted(){
+  },
+  methods:{
+  }
 })
 import './../static/css/base.css'
 import './../static/css/svg.svg'
+
+

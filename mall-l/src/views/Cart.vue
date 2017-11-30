@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <svg-icon></svg-icon>
-    <page-header ref="currentUser"></page-header>
+    <page-header></page-header>
     <breaks>
       <span>购物车</span>
     </breaks>
@@ -100,6 +100,13 @@
       <a slot="footer" href="javascript:;" @click="closeModal()">取消</a>
       <a slot="footer" href="javascript:;" @click="confirmDel()">确认</a>
     </modal>
+    <modal :showModal="!this.currentUser.username">
+      <svg slot="header" class="icon icon-tip" style="color:red;">
+        <use xlink:href="#icon-tip"></use>
+      </svg>
+      <h1 slot="header">您还未登录，请登录</h1>
+      <router-link slot="footer" to="/login">登录</router-link>
+    </modal>
     <page-footer></page-footer>
   </div>
 </template>
@@ -131,7 +138,9 @@
       Modal
     },
     mounted() {
-      this.getGoodsList()
+      if(this.currentUser.username){
+        this.getGoodsList()
+      }
     },
     computed:{
       checkedAllGoods(){
@@ -155,11 +164,13 @@
           }
         })
         return _sum
+      },
+      currentUser(){
+        return this.$store.state.currentUser
       }
     },
     methods: {
       getGoodsList() {
-        this.currentUser = this.$refs.currentUser.currentUser
         let query = new AV.Query('_User')
         query.get(this.currentUser.objectId).then(result=>{
           this.goodsData =  result.get('cartList')

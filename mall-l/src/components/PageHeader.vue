@@ -9,9 +9,9 @@
         <div class="navbar-menu-container">
           <!--<a href="/" class="navbar-link">我的账户</a>-->
           <span class="navbar-link"></span>
-          <a href="javascript:void(0)" v-show="currentUser.name" class="navbar-link">{{currentUser.name}}</a>
-          <a href="javascript:void(0)" v-show="!currentUser.name" @click="goLogin()" class="navbar-link">Login</a>
-          <a href="javascript:void(0)" v-show="currentUser.name" @click="logout()" class="navbar-link">Logout</a>
+          <a href="javascript:void(0)" v-show="currentUser.username"  class="navbar-link">{{currentUser.username}}</a>
+          <router-link to="/login" v-show="!currentUser.username">Login</router-link>
+          <a href="javascript:void(0)" v-show="currentUser.username" @click="logout()" class="navbar-link">Logout</a>
           <div class="navbar-cart-container">
             <span class="navbar-cart-count"></span>
             <a class="navbar-link navbar-cart-link" href="/#/cart">
@@ -27,41 +27,24 @@
 </template>
 
 <script>
-  import AV from 'leancloud-storage'
-
   export default {
     data() {
       return {
-        currentUser: {//当前用户
-          name:'',
-          objectId:''
-        }
+
       }
     },
-    mounted() {
-      this.getCurrentUser()
+    computed:{
+      currentUser(){
+        return this.$store.state.currentUser
+      }
+    },
+    mounted(){
     },
     methods: {
-      goLogin(){
-        document.location.hash = '#/login'
-      },
-      getCurrentUser(){
-        let currentUser = AV.User.current()
-        if (currentUser) {
-          //console.log('currentUser', currentUser)
-          this.currentUser.name = currentUser._serverData.username
-          this.currentUser.objectId = currentUser.id
-          return this.currentUser
-        }
-      },
       logout() {
-        if(this.currentUser.name){
-          AV.User.logOut()
-          this.currentUser = {
-            name:'',
-            objectId:''
-          }
-          console.log('logout')
+        if(this.currentUser.username){
+          this.$store.commit('logout')
+          console.log('logout2')
         }else{
           console.log('还未登录')
         }

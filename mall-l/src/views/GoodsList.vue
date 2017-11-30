@@ -1,7 +1,7 @@
 <template>
   <div>
     <svg-icon></svg-icon>
-    <page-header ref="currentUser"></page-header>
+    <page-header></page-header>
     <breaks>
       <span>GoodsList</span>
     </breaks>
@@ -76,6 +76,13 @@
       <!--<a slot="footer" href="javascript:;" ></a>-->
       <router-link slot="footer" to="/login">去登录</router-link>
       <a slot="footer" href="javascript:;" @click="closeModal()">关闭</a>
+    </modal>
+    <modal :showModal="!this.currentUser.username">
+      <svg slot="header" class="icon icon-tip" style="color:red;">
+        <use xlink:href="#icon-tip"></use>
+      </svg>
+      <h1 slot="header">您还未登录，请登录</h1>
+      <router-link slot="footer" to="/login">登录</router-link>
     </modal>
   </div>
 </template>
@@ -157,12 +164,19 @@
       SvgIcon,
       Modal
     },
+    computed:{
+      currentUser(){
+        return this.$store.state.currentUser
+      }
+    },
     created(){
-//      this.getGoodsData()
+
     },
     mounted(){
-      //this.getGoodsData()
-
+      if(this.currentUser.username){
+        console.log('保存失败')
+        this.getGoodsData()
+      }
     },
     methods:{
       getGoodsData($state){
@@ -304,7 +318,10 @@
         }
       },
       infiniteHandler($state){ //懒加载加载更多
-        this.getGoodsData($state)
+
+        if(this.currentUser.username){
+          this.getGoodsData($state)
+        }
       },
       setPriceFilter(index){
         this.isPriceSelected = index
@@ -314,9 +331,9 @@
         this.getGoodsData()
       },
       addCart(goods){
-        let currentUser = this.$refs.currentUser.currentUser
+        let currentUser = this.$store.state.currentUser
         //console.log(currentUser)
-        if(currentUser.name){//如果登录了
+        if(currentUser.username){//如果登录了
           //查找购物车里是否有这个商品
           //根据商品的objectId，来查询购物车是否有这个商品，如果有就+1，如果没有就添加
           let query = new AV.Query('_User')
