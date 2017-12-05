@@ -3,13 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="25041499-8cfc-4797-bd96-74c490785b46" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leancloud_l/StorageStarted" afterPath="$PROJECT_DIR$/leancloud_l/StorageStarted" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mall-l/README.md" afterPath="$PROJECT_DIR$/mall-l/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mall-l/package.json" afterPath="$PROJECT_DIR$/mall-l/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mall-l/src/components/PageHeader.vue" afterPath="$PROJECT_DIR$/mall-l/src/components/PageHeader.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mall-l/src/main.js" afterPath="$PROJECT_DIR$/mall-l/src/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mall-l/src/views/Cart.vue" afterPath="$PROJECT_DIR$/mall-l/src/views/Cart.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mall-l/src/views/GoodsList.vue" afterPath="$PROJECT_DIR$/mall-l/src/views/GoodsList.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -49,7 +42,7 @@
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
               <first_editor relative-caret-position="128">
-                <caret line="96" column="25" lean-forward="true" selection-start-line="96" selection-start-column="25" selection-end-line="96" selection-end-column="25" />
+                <caret line="96" column="25" lean-forward="false" selection-start-line="96" selection-start-column="25" selection-end-line="96" selection-end-column="25" />
                 <folding />
               </first_editor>
               <second_editor>
@@ -378,12 +371,12 @@
       <workItem from="1510626426659" duration="97828000" />
       <workItem from="1511316639779" duration="49412000" />
       <workItem from="1511944985024" duration="8626000" />
-      <workItem from="1512043730752" duration="8793000" />
+      <workItem from="1512043730752" duration="8931000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="203572000" />
+    <option name="totallyTimeSpent" value="203710000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="101" y="302" width="1467" height="792" extended-state="0" />
@@ -841,7 +834,7 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="128">
-            <caret line="96" column="25" lean-forward="true" selection-start-line="96" selection-start-column="25" selection-end-line="96" selection-end-column="25" />
+            <caret line="96" column="25" lean-forward="false" selection-start-line="96" selection-start-column="25" selection-end-line="96" selection-end-column="25" />
             <folding />
           </first_editor>
           <second_editor>

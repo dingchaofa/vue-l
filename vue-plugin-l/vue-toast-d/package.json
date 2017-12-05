@@ -1,0 +1,20 @@
+{
+  "name": "vue-toast-d",
+  "version": "1.0.0",
+  "description": "a vue's plugin practise",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ding",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-loader": "^7.1.2",
+    "css-loader": "^0.28.7",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
+    "vue-loader": "^13.5.0",
+    "vue-template-compiler": "^2.5.9",
+    "webpack": "^3.10.0"
+  }
+}
