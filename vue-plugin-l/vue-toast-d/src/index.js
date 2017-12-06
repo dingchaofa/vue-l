@@ -2,7 +2,7 @@ import ToastComponent from './vue-toast.vue'
 
 let Toast = {}
 
-Toast.install = function (msg,opt) { //vue插件必须要有install方法
+Toast.install = function (Vue,msg,opt) { //vue插件必须要有install方法
 
   let options = {
     duration:3000
@@ -20,7 +20,7 @@ Toast.install = function (msg,opt) { //vue插件必须要有install方法
     let _install = new ToastMethod().$mount(document.createElement('div'))
     _install.msg = msg
     _install.visible = true
-
+    document.body.appendChild(_install.$el)
     setTimeout(()=>{
       _install.visible = false
       document.body.removeChild(_install.$el)
@@ -34,4 +34,8 @@ Toast.install = function (msg,opt) { //vue插件必须要有install方法
 
 }
 
+
+if(window.Vue){
+  Vue.use(Toast)
+}
 export default Toast
