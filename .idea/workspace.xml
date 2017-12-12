@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="25041499-8cfc-4797-bd96-74c490785b46" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webpack-demo/src/css/index.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webpack-demo/src/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webpack-demo/src/inner.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webpack-demo/src/js/common.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webpack-demo/src/js/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webpack-demo/src/js/inner.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webpack-demo/webpack.config.js" />
+    <list default="true" id="25041499-8cfc-4797-bd96-74c490785b46" name="Default" comment="webstorm commit test">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/webpack-demo/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leancloud_l/StorageStarted" afterPath="$PROJECT_DIR$/leancloud_l/StorageStarted" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack-demo/src/js/index.js" afterPath="$PROJECT_DIR$/webpack-demo/src/js/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack-demo/src/js/inner.js" afterPath="$PROJECT_DIR$/webpack-demo/src/js/inner.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack-demo/webpack.config.js" afterPath="$PROJECT_DIR$/webpack-demo/webpack.config.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,22 +27,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="webpack.config.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="webpack.config.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webpack-demo/webpack.config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+            <state relative-caret-position="-205">
+              <caret line="43" column="7" lean-forward="true" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webpack-demo/dist/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="10" column="2" lean-forward="false" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
-              <folding />
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/webpack-demo/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="0">
+                <caret line="0" column="14" lean-forward="true" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+                <folding />
+              </first_editor>
+              <second_editor>
+                <js_state />
+              </second_editor>
             </state>
           </provider>
         </entry>
@@ -54,8 +55,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webpack-demo/src/js/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="2" column="20" lean-forward="true" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+            <state relative-caret-position="126">
+              <caret line="6" column="2" lean-forward="false" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -64,18 +65,18 @@
       <file leaf-file-name="inner.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webpack-demo/src/js/inner.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="0" column="40" lean-forward="false" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="40" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="inner.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webpack-demo/dist/inner.html">
+      <file leaf-file-name="common.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webpack-demo/src/js/common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="21">
+              <caret line="1" column="10" lean-forward="false" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -138,7 +139,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/mall-l/server/app.js" />
         <option value="$PROJECT_DIR$/mall-l/server/routes/goodsList.js" />
         <option value="$PROJECT_DIR$/mall-l/build/dev-server.js" />
         <option value="$PROJECT_DIR$/mall-l/src/mock/goodsData.json" />
@@ -186,9 +186,10 @@
         <option value="$PROJECT_DIR$/webpack-demo/src/css/index.css" />
         <option value="$PROJECT_DIR$/webpack-demo/dist/js/index.js" />
         <option value="$PROJECT_DIR$/webpack-demo/package.json" />
-        <option value="$PROJECT_DIR$/webpack-demo/src/js/index.js" />
         <option value="$PROJECT_DIR$/webpack-demo/src/js/inner.js" />
+        <option value="$PROJECT_DIR$/webpack-demo/src/js/index.js" />
         <option value="$PROJECT_DIR$/webpack-demo/webpack.config.js" />
+        <option value="$PROJECT_DIR$/webpack-demo/README.md" />
       </list>
     </option>
   </component>
@@ -213,8 +214,8 @@
     <handled-path value="$PROJECT_DIR$/webpack-demo/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="305" />
-    <option name="y" value="145" />
+    <option name="x" value="380" />
+    <option name="y" value="132" />
     <option name="width" value="1203" />
     <option name="height" value="792" />
   </component>
@@ -274,32 +275,6 @@
               <item name="vue-l" type="b2602c69:ProjectViewProjectNode" />
               <item name="vue-l" type="462c0819:PsiDirectoryNode" />
               <item name="webpack-demo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="vue-l" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vue-l" type="462c0819:PsiDirectoryNode" />
-              <item name="webpack-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="dist" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="vue-l" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vue-l" type="462c0819:PsiDirectoryNode" />
-              <item name="webpack-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="dist" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="vue-l" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vue-l" type="462c0819:PsiDirectoryNode" />
-              <item name="webpack-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="vue-l" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vue-l" type="462c0819:PsiDirectoryNode" />
-              <item name="webpack-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -361,15 +336,23 @@
       <workItem from="1512043730752" duration="8931000" />
       <workItem from="1512570770610" duration="1190000" />
       <workItem from="1512964201245" duration="1635000" />
-      <workItem from="1512981669065" duration="8163000" />
+      <workItem from="1512981669065" duration="13085000" />
     </task>
+    <task id="LOCAL-00001" summary="webstorm commit test">
+      <created>1513048594655</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1513048594655</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="214698000" />
+    <option name="totallyTimeSpent" value="219620000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="305" y="145" width="1203" height="792" extended-state="0" />
+    <frame x="380" y="132" width="1203" height="792" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17597292" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -414,6 +397,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="webstorm commit test" />
+    <option name="LAST_COMMIT_MESSAGE" value="webstorm commit test" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -428,13 +415,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mall-l/others/resource/util.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mall-l/src/App.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -686,14 +666,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webpack-demo/src/js/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vue-plugin-l/vue-toast-d/dist/bundle.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -758,26 +730,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webpack-demo/dist/js/inner.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2910">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webpack-demo/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="327">
           <caret line="17" column="7" lean-forward="false" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webpack-demo/src/js/inner.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -806,14 +762,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webpack-demo/src/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="20" lean-forward="true" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webpack-demo/dist/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -822,21 +770,64 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/webpack-demo/src/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="10" lean-forward="false" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack-demo/dist/js/inner.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/webpack-demo/dist/js/vendor.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1327">
+        <state relative-caret-position="-15239">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack-demo/src/js/inner.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="40" lean-forward="false" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack-demo/src/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="2" lean-forward="false" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/webpack-demo/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+        <state relative-caret-position="-205">
+          <caret line="43" column="7" lean-forward="true" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpack-demo/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="14" lean-forward="true" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+            <folding />
+          </first_editor>
+          <second_editor>
+            <js_state />
+          </second_editor>
         </state>
       </provider>
     </entry>

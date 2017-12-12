@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const webpack = require('webpack')
+const jquery = require('jquery')
 
 module.exports = {
   entry: {
@@ -36,7 +37,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename:'index.html',
       template: './src/index.html',
-      chunks: ['index','vendor']
+      chunks: ['index','vendor'],
+      minify: {
+        removeComments:true,
+        collapseWhitespace:true
+      }
     }),
     new HtmlWebpackPlugin({
       filename:'inner.html',
@@ -54,6 +59,17 @@ module.exports = {
       name:'vendor',
       chunks:['index','inner','vendor'],
       mikChunks:3
+    }),
+    new webpack.ProvidePlugin({
+      $:'jquery',
+      jQuery:'jquery',
+      'window.jQuery':'jquery'
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+        drop_console: false,
+      }
     })
   ]
   //devtool: '#source-map'
