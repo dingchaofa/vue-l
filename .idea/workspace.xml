@@ -3,15 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="25041499-8cfc-4797-bd96-74c490785b46" name="Default" comment="webstorm commit test">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leancloud_l/StorageStarted" afterPath="$PROJECT_DIR$/leancloud_l/StorageStarted" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mall-l/README.md" afterPath="$PROJECT_DIR$/mall-l/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mall-l/config/index.js" afterPath="$PROJECT_DIR$/mall-l/config/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mall-l/src/components/PageHeader.vue" afterPath="$PROJECT_DIR$/mall-l/src/components/PageHeader.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mall-l/src/main.js" afterPath="$PROJECT_DIR$/mall-l/src/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mall-l/src/views/Cart.vue" afterPath="$PROJECT_DIR$/mall-l/src/views/Cart.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mall-l/src/views/GoodsList.vue" afterPath="$PROJECT_DIR$/mall-l/src/views/GoodsList.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mall-l/src/views/Login.vue" afterPath="$PROJECT_DIR$/mall-l/src/views/Login.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mall-l/.gitignore" afterPath="$PROJECT_DIR$/mall-l/.gitignore" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,17 +23,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mall-l/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
               <first_editor relative-caret-position="399">
-                <caret line="19" column="13" lean-forward="true" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+                <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
                 <folding />
               </first_editor>
               <second_editor>
                 <js_state />
               </second_editor>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mall-l/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -148,7 +150,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/mall-l/src/mock/goodsData.json" />
         <option value="$PROJECT_DIR$/mall-l/leancloud/index.html" />
         <option value="$PROJECT_DIR$/mall-l/leancloud/initLeancloud.js" />
         <option value="$PROJECT_DIR$/mall-l/leancloud/getLeanCloudData.js" />
@@ -199,6 +200,7 @@
         <option value="$PROJECT_DIR$/mall-l/README.md" />
         <option value="$PROJECT_DIR$/mall-l/config/index.js" />
         <option value="$PROJECT_DIR$/mall-l/src/views/Cart.vue" />
+        <option value="$PROJECT_DIR$/mall-l/.gitignore" />
       </list>
     </option>
   </component>
@@ -298,26 +300,6 @@
               <item name="mall-l" type="462c0819:PsiDirectoryNode" />
               <item name="dist" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="vue-l" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vue-l" type="462c0819:PsiDirectoryNode" />
-              <item name="mall-l" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="vue-l" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vue-l" type="462c0819:PsiDirectoryNode" />
-              <item name="mall-l" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="vue-l" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vue-l" type="462c0819:PsiDirectoryNode" />
-              <item name="mall-l" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -382,7 +364,7 @@
       <workItem from="1513153703118" duration="4881000" />
       <workItem from="1513167052803" duration="6000" />
       <workItem from="1513167085245" duration="1228000" />
-      <workItem from="1513168655698" duration="32000" />
+      <workItem from="1513168655698" duration="135000" />
     </task>
     <task id="LOCAL-00001" summary="webstorm commit test">
       <created>1513048594655</created>
@@ -395,7 +377,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="226694000" />
+    <option name="totallyTimeSpent" value="226797000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="211" y="94" width="1340" height="792" extended-state="0" />
@@ -461,13 +443,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mall-l/others/resource/views/orderConfirm.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="34" column="2" lean-forward="true" selection-start-line="34" selection-start-column="2" selection-end-line="132" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mall-l/src/components/Breaks.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -842,12 +817,20 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="399">
-            <caret line="19" column="13" lean-forward="true" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+            <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
             <folding />
           </first_editor>
           <second_editor>
             <js_state />
           </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mall-l/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -1,0 +1,100 @@
+/* login.css */
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+#wrap {
+  width: 100%;
+  margin: auto;
+  max-width: 525px;
+  min-height: 670px;
+  position: relative;
+  background: url('../images/rouge-baiser.jpg') no-repeat center;
+  background-size: cover;
+  box-shadow: 0 12px 15px 0 rgba(0,0,0,.24), 0 17px 50px 0 rgba(0,0,0,.19);
+  transform: translateY(12%);
+}
+.contain {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  padding: 90px 70px 50px 70px;
+  background: rgba(222, 107, 88, 0.37);
+}
+.tab {
+  font-size: 22px;
+  margin-right: 15px;
+  padding-bottom: 5px;
+  margin: 0 15px 10px 0;
+  display: inline-block;
+  border-bottom: 2px solid transparent;
+}
+.tabUp,.tabIn{
+  display: none;
+}
+.tabUp:checked+label.tab, .tabIn:checked+label.tab {
+  border-color: #1161ee;
+  color: white;
+}
+.formContain {
+  min-height: 345px;
+  position: relative;
+  margin-top: 44px;
+  transform-style: preserve-3d;
+}
+.formContain .signUp,.formContain .login {
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: all 0.7s ease-in-out;
+}
+.tabIn:checked ~ .formContain .login,
+.tabUp:checked ~ .formContain .signUp {
+  transform: rotate(0)
+}
+.formContain form>div {
+  /*margin-bottom: 15px;*/
+}
+.formContain label {
+  color: #f3f5f3;
+  font-size: 12px;
+}
+.formContain form>div input {
+  border: none;
+  padding: 15px 20px;
+  border-radius: 25px;
+  background: rgba(242, 172, 145, 0.25);;
+  width: 100%;
+  color: #fff;
+  display: block;
+  outline: none;
+}
+.signUp input[type="submit"], .login input[type="submit"] {
+  background-color: rgba(221, 108, 93, 0.78);;
+  margin-top: 18px;
+}
+.formContain .hr {
+  height: 2px;
+  margin: 30px 0px 9px 0;
+  background: rgba(255,255,255,.2);
+}
+.footLink {
+  text-align: center;
+}
+.footLink a,
+.footLink label{
+  color: #f8f3ed;
+  text-decoration: none;
+  font-size: 16px;
+}
+#wrap form div span {
+  color: #eff904;
+  height: 20px;
+  line-height: 30px;
+  display: inline-block;
+}
