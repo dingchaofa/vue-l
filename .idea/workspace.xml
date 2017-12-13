@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="25041499-8cfc-4797-bd96-74c490785b46" name="Default" comment="webstorm commit test">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leancloud_l/StorageStarted" afterPath="$PROJECT_DIR$/leancloud_l/StorageStarted" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mall-l/.gitignore" afterPath="$PROJECT_DIR$/mall-l/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mall-l/README.md" afterPath="$PROJECT_DIR$/mall-l/README.md" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,12 +23,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mall-l/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="399">
-                <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+              <first_editor relative-caret-position="231">
+                <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
                 <folding />
               </first_editor>
               <second_editor>
@@ -38,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mall-l/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+            <state relative-caret-position="189">
+              <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -197,10 +197,10 @@
         <option value="$PROJECT_DIR$/mall-l/src/views/GoodsList.vue" />
         <option value="$PROJECT_DIR$/mall-l/src/views/Login.vue" />
         <option value="$PROJECT_DIR$/mall-l/src/components/PageHeader.vue" />
-        <option value="$PROJECT_DIR$/mall-l/README.md" />
         <option value="$PROJECT_DIR$/mall-l/config/index.js" />
         <option value="$PROJECT_DIR$/mall-l/src/views/Cart.vue" />
         <option value="$PROJECT_DIR$/mall-l/.gitignore" />
+        <option value="$PROJECT_DIR$/mall-l/README.md" />
       </list>
     </option>
   </component>
@@ -364,7 +364,7 @@
       <workItem from="1513153703118" duration="4881000" />
       <workItem from="1513167052803" duration="6000" />
       <workItem from="1513167085245" duration="1228000" />
-      <workItem from="1513168655698" duration="135000" />
+      <workItem from="1513168655698" duration="381000" />
     </task>
     <task id="LOCAL-00001" summary="webstorm commit test">
       <created>1513048594655</created>
@@ -377,7 +377,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="226797000" />
+    <option name="totallyTimeSpent" value="227043000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="211" y="94" width="1340" height="792" extended-state="0" />
@@ -808,6 +808,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mall-l/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mall-l/README.md">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -816,21 +824,13 @@
       </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="399">
-            <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <first_editor relative-caret-position="231">
+            <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
             <folding />
           </first_editor>
           <second_editor>
             <js_state />
           </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mall-l/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>

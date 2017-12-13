@@ -5,6 +5,10 @@ Vue + Node.js + Leancloud打造单页面应用
 2. Node.js建立路由，运行代码
 3. Leancloud的Baas（backend as a server）做后台和数据库
 
+### Preview
+
+https://dingchaofa.github.io/vue-l/mall-l/dist/
+
 > A Vue.js project
 
 ### Build Setup
