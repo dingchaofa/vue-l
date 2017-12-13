@@ -86,7 +86,8 @@
               Item total: <span class="total-price">{{sumPrice | currency('¥')}}</span>
             </div>
             <div class="btn-wrap">
-              <a class="btn btn--red" :class="[ sumPrice>0 ? '':'btn--dis']" href="/#/address">确认订单</a>
+              <!--<a class="btn btn&#45;&#45;red" :class="[ sumPrice>0 ? '':'btn&#45;&#45;dis']" href="/#/address">确认订单</a>-->
+              <router-link class="btn btn--red" :class="[ sumPrice>0 ? '':'btn--dis']" to="/address">确认订单</router-link>
             </div>
           </div>
         </div>

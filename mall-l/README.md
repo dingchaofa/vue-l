@@ -1,5 +1,5 @@
 # mall-l
-Vue + Node.js + Leancloud打造购物商城
+Vue + Node.js + Leancloud打造单页面应用
 
 1. 利用Vue搭建页面
 2. Node.js建立路由，运行代码
@@ -95,6 +95,9 @@ npm run build --report
 
 15.
   * 用vuex进行用户名和购物车数量的状态管理
+
+16.
+  * 整个页面逻辑完成
 
 #### 注意事项
 

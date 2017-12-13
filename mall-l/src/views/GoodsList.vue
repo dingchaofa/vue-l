@@ -77,13 +77,13 @@
       <router-link slot="footer" to="/login">去登录</router-link>
       <a slot="footer" href="javascript:;" @click="closeModal()">关闭</a>
     </modal>
-    <modal :showModal="!this.currentUser.username">
-      <svg slot="header" class="icon icon-tip" style="color:red;">
-        <use xlink:href="#icon-tip"></use>
-      </svg>
-      <h1 slot="header">您还未登录，请登录</h1>
-      <router-link slot="footer" to="/login">登录</router-link>
-    </modal>
+    <!--<modal :showModal="!this.currentUser.username">-->
+      <!--<svg slot="header" class="icon icon-tip" style="color:red;">-->
+        <!--<use xlink:href="#icon-tip"></use>-->
+      <!--</svg>-->
+      <!--<h1 slot="header">您还未登录，请登录</h1>-->
+      <!--<router-link slot="footer" to="/login">登录</router-link>-->
+    <!--</modal>-->
   </div>
 </template>
 
@@ -166,6 +166,7 @@
     },
     computed:{
       currentUser(){
+        console.log('goodslist',this.$store.state.currentUser)
         return this.$store.state.currentUser
       }
     },
@@ -173,10 +174,8 @@
 
     },
     mounted(){
-      if(this.currentUser.username){
-        console.log('保存失败')
-        this.getGoodsData()
-      }
+
+      this.getGoodsData()
     },
     methods:{
       getGoodsData($state){

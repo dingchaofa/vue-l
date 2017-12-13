@@ -33,11 +33,11 @@ const store = new Vuex.Store({
     getCurrentUser(state){
       let currentUser = AV.User.current()
       if(!currentUser){
-
         return
       }
       state.currentUser.username = currentUser._serverData.username
       state.currentUser.objectId = currentUser.id
+      console.log('currentUser._serverData.username',currentUser._serverData.username)
 
     },
     logout(state){
@@ -97,6 +97,7 @@ new Vue({
     store.commit('getCurrentUser')
   },
   mounted(){
+    console.log('main')
   },
   methods:{
   }

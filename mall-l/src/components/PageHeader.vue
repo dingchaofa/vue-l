@@ -35,6 +35,8 @@
     },
     computed:{
       currentUser(){
+        this.$store.commit('getCurrentUser')
+        //console.log('pageheader',this.$store.state.currentUser)
         return this.$store.state.currentUser
       }
     },

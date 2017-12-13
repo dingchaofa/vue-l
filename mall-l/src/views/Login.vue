@@ -18,7 +18,7 @@
             <div><label>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码<input v-model="password"  name="password" type="password"></label>
               <span class='passwordError'>{{passwordError}}</span>
             </div>
-            <div><label>确认密码<input name="confire_password" type="password"></label>
+            <div><label>确认密码<input name="confire_password" v-model="confire_password" type="password"></label>
               <span class='confire_passwordError'>{{confire_passwordError}}</span>
             </div>
             <div><input @click.prevent="signUp()" type="submit" value="注册"></div>
@@ -75,10 +75,19 @@ import AV from 'leancloud-storage'
         nameError:'',
         emailError:'',
         passwordError:'',
-        confire_passwordError:''
+        confire_passwordError:'',
+        confire_password: ''
       }
     },
     methods:{
+      closeHint(){
+        setTimeout(()=>{
+          this.nameError = ""
+          this.emailError = ""
+          this.passwordError = ""
+          this.confire_passwordError = ""
+        },2000)
+      },
       checkForm(isEmail){ //根据参数，判断是否检查邮箱
         let username,password,email
 
@@ -87,21 +96,40 @@ import AV from 'leancloud-storage'
 
         if(!arguments[0]){
           email = /\w+@\w+\.\w+/.test(this.email)
+
+          //如果是登录，则不需要验证邮箱和确认密码项
+          if(!this.confire_password){
+            this.confire_passwordError = '请您确认密码'
+            this.closeHint()
+            return false
+          }
+          if(this.confire_password!=this.password){
+            this.confire_passwordError = '确认密码不匹配'
+            this.closeHint()
+            return false
+          }
+
         }
+
 
         if(!username){
           this.nameError = '请输入正确的姓名'
+          this.closeHint()
           return false
         }
         if(email===false){ //由于登陆的时候不需要输入邮箱
           this.emailError = '请输入正确的邮箱'
+          this.closeHint()
           return false
         }
 
         if(!password){
           this.passwordError = '请输入4位及以上，数字、字母、下划线'
+          this.closeHint()
           return false
         }
+
+
         return true
       },
       signUp(){
@@ -116,8 +144,6 @@ import AV from 'leancloud-storage'
         user.setEmail(this.email)
         user.signUp().then((loginedUser)=>{
           document.location.hash = '#/goodslist'
-          console.log('loginedUser sign up',loginedUser)
-
         },(err)=>{
           console.log('err',err)
           if(err.code===125){
@@ -126,11 +152,16 @@ import AV from 'leancloud-storage'
           if(err.code===202){
             this.nameError = '用户名已经被注册'
           }
+          if(err.code===203){
+            this.emailError = '此电子邮箱已经被占用'
+          }
+          this.closeHint()
         })
       },
       login(){
         let checkResult = this.checkForm('email')
         if(!checkResult){
+          console.log('无法登录')
           return
         }
 

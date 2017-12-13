@@ -1,0 +1,1 @@
+webpackJsonp([0],[,,,function(n,o,c){"use strict";c(4),new Promise(function(n){n()}).then(function(){(function(n){var o=[c(1)];(function(o){o.indexInit(),n(function(){console.log("hello jquery index")})}).apply(null,o)}).call(this,c(0))}).catch(c.oe)},function(n,o){}],[3]);
