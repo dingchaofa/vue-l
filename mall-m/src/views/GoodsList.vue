@@ -1,7 +1,7 @@
 <template>
   <div>
     <svg-icon></svg-icon>
-    <page-header></page-header>
+    <page-header ref="currentUser"></page-header>
     <breaks>
       <span>GoodsList</span>
     </breaks>
@@ -37,7 +37,7 @@
               <ul>
                 <li v-for="goods in goodsData">
                   <div class="pic">
-                    <a href="#"><img v-lazy="goods.productUrl" alt=""></a>
+                    <a href="#"><img :src="goods.productUrl" alt=""></a>
                   </div>
                   <div class="main">
                     <div class="name">{{goods.productName}}</div>
@@ -68,22 +68,17 @@
         <use xlink:href="#icon-success"></use>
       </svg>
       <h1 slot="header">加入购物车成功</h1>
-      <router-link slot="footer" to="/cart">查看购物车</router-link>
+      <!-- <router-link slot="footer" to="/cart">查看购物车</router-link> -->
+      <a href="./cart.html" slot="footer">查看购物车</a>
       <a slot="footer" href="javascript:;" @click="closeModal()">继续购物</a>
     </modal>
     <modal :showModal="showLoginModal" @closeModal="closeModal()">
       <h1 slot="header">未登录，无法加入购物车</h1>
       <!--<a slot="footer" href="javascript:;" ></a>-->
-      <router-link slot="footer" to="/login">去登录</router-link>
+      <!-- <router-link slot="footer" to="/login">去登录</router-link> -->
+      <a href="./login.html" slot="footer">去登录</a>
       <a slot="footer" href="javascript:;" @click="closeModal()">关闭</a>
     </modal>
-    <!--<modal :showModal="!this.currentUser.username">-->
-      <!--<svg slot="header" class="icon icon-tip" style="color:red;">-->
-        <!--<use xlink:href="#icon-tip"></use>-->
-      <!--</svg>-->
-      <!--<h1 slot="header">您还未登录，请登录</h1>-->
-      <!--<router-link slot="footer" to="/login">登录</router-link>-->
-    <!--</modal>-->
   </div>
 </template>
 
@@ -117,10 +112,14 @@
   import SvgIcon from './../components/SvgIcon.vue'
   import axios from 'axios'
   import AV from 'leancloud-storage'
-  import initLeanCloud from './../../leancloud/initLeanCloud'
+  import initLeanCloud from './../../static/js/initLeanCloud.js'
   import InfiniteLoading from 'vue-infinite-loading';
   import Modal from './../components/Modal.vue'
-
+  import VueLazyLoad from 'vue-lazyload'
+import Vue from 'vue'
+Vue.use(VueLazyLoad,{
+  loading:'../static/images/loading-svg/loading-bars.svg'
+})
   ;//创建一个全局变量
 
   export default {
@@ -165,41 +164,23 @@
       Modal
     },
     computed:{
-      currentUser(){
-        console.log('goodslist',this.$store.state.currentUser)
-        return this.$store.state.currentUser
-      }
+      
     },
     created(){
 
     },
     mounted(){
-
+        console.log('this goodslist component this.$refs.currentUser',this.$refs.currentUser.currentUser)
+        //let currentUser = localStorage.getItem('currentUser')
+        this.currentUser = this.$refs.currentUser
       this.getGoodsData()
     },
     methods:{
       getGoodsData($state){
 
-        //从leancloud获取数据
-//        axios('./goodsData').then(res=>{
-//          //console.log(res.data.goodsData)
-//          this.goodsData = res.data.goodsData
-//        })
-
-        //从leancloud的goodsList对象获取数据
           let query = new AV.Query('goodsList')
           let _serverData = [],
             _this = this
-
-//        if(false){ //每次请求同样的资源，由服务器排序造成请求浪费，可在本地进行排序
-//          if(this.priceTopOrDown){
-//            query.ascending('salePrice') //对价格进行生序，请求的数据价格是上升的。
-//          } else{
-//            query.descending('salePrice') //对价格进行生序，请求的数据价格是上升的。
-//          }
-//        }
-
-        //query.greaterThanOrEqualTo('salePrice', 100); //比较查询
 
         if(this.isPriceSelected !== 'All'){
           let startQueryPrice = new AV.Query('goodsList'),

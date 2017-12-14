@@ -10,7 +10,8 @@
           <!--<a href="/" class="navbar-link">我的账户</a>-->
           <span class="navbar-link"></span>
           <a href="javascript:void(0)" v-show="currentUser.username"  class="navbar-link">{{currentUser.username}}</a>
-          <router-link to="/login" v-show="!currentUser.username">Login</router-link>
+          <!-- <router-link to="/login" v-show="!currentUser.username">Login</router-link> -->
+          <a href="./login.html" v-show="!currentUser.username">Login</a>
           <a href="javascript:void(0)" v-show="currentUser.username" @click="logout()" class="navbar-link">Logout</a>
           <div class="navbar-cart-container">
             <span class="navbar-cart-count"></span>
@@ -27,20 +28,27 @@
 </template>
 
 <script>
+//import common from '../pages/common/main.js'
+import AV from 'leancloud-storage'
   export default {
     data() {
       return {
-
+        
       }
     },
     computed:{
       currentUser(){
-        this.$store.commit('getCurrentUser')
-        //console.log('pageheader',this.$store.state.currentUser)
-        return this.$store.state.currentUser
+        return {
+          username:'',
+          objectId:''
+        }
       }
     },
+    created(){
+      this.getCurrentUser()
+    },
     mounted(){
+      
     },
     methods: {
       logout() {
@@ -50,7 +58,17 @@
         }else{
           console.log('还未登录')
         }
+      },
+      getCurrentUser(){
+      let currentUser = AV.User.current()
+      if(!currentUser){
+        return
       }
+      this.currentUser.username = currentUser._serverData.username
+      this.currentUser.objectId = currentUser.id
+      //console.log('currentUser.username',this.currentUser)
+      //localStorage.setItem('currentUser',JSON.stringify(this.currentUser))
+    }
     }
   }
 </script>

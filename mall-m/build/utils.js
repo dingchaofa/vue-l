@@ -71,7 +71,7 @@ exports.styleLoaders = function (options) {
   return output
 }
 
-//**********多页面配置
+//*******************************************多页面配置
 // glob是webpack安装时依赖的一个第三方模块，还模块允许你使用 *等符号, 例如lib/*.js就是获取lib文件夹下的所有js后缀名的文件
 var glob = require('glob')
 // 页面模板
@@ -87,11 +87,13 @@ var merge = require('webpack-merge')
 // 那么就作为入口处理
 exports.entries = function() {
   var entryFiles = glob.sync(PAGE_PATH + '/*/*.js')
+  //console.log('entryFiles',entryFiles)
   var map = {}
   entryFiles.forEach((filePath) => {
     var filename = filePath.substring(filePath.lastIndexOf('\/') + 1, filePath.lastIndexOf('.'))
     map[filename] = filePath
   })
+  //console.log('entries',map)
   return map
 }
 
@@ -99,6 +101,7 @@ exports.entries = function() {
 // 与上面的多页面入口配置相同，读取pages文件夹下的对应的html后缀文件，然后放入数组中
 exports.htmlPlugin = function() {
   let entryHtml = glob.sync(PAGE_PATH + '/*/*.html')
+  //console.log('entryHtml',entryHtml)
   let arr = []
   entryHtml.forEach((filePath) => {
     let filename = filePath.substring(filePath.lastIndexOf('\/') + 1, filePath.lastIndexOf('.'))
@@ -123,5 +126,6 @@ exports.htmlPlugin = function() {
     }
     arr.push(new HtmlWebpackPlugin(conf))
   })
+  //console.log('htmlPlugin',arr)
   return arr
 }
