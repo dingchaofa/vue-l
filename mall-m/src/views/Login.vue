@@ -2,9 +2,9 @@
   <div id="body">
   <div id="wrap">
     <div class="contain">
-      <input id="tabUp" class="tabUp" name="tab" type="radio" checked>
+      <input id="tabUp" class="tabUp" name="tab" type="radio" :checked="!isChecked" @click="isChecked=false">
       <label class="tab" for="tabUp">注册</label>
-      <input id="tabIn" class="tabIn" name="tab" type="radio">
+      <input id="tabIn" class="tabIn" name="tab" type="radio" :checked="isChecked" @click="isChecked=true">
       <label class="tab" for="tabIn">登录</label>
       <div class="formContain">
         <section class="signUp">
@@ -30,7 +30,7 @@
         </section>
         <section class="login">
           <form name="login">
-            <div><label>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名<input v-model="username" name="username" type="text"></label>
+            <div><label>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名<input v-model="username" name="username" type="text" autofocus></label>
               <span class='nameError'>{{nameError}}</span>
             </div>
             <div><label>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码<input v-model="password" name="password" type="password"></label>
@@ -65,6 +65,8 @@
 import './../../static/css/login.css'
 
 import AV from 'leancloud-storage'
+import initLeanCloud from './../../static/js/initLeanCloud.js'
+
 
   export default {
     data(){
@@ -76,8 +78,15 @@ import AV from 'leancloud-storage'
         emailError:'',
         passwordError:'',
         confire_passwordError:'',
-        confire_password: ''
+        confire_password: '',
+        isChecked:''
       }
+    },
+    computed:{
+      
+    },
+    mounted(){
+      this.isChecked = /isLogined/.test(document.cookie)
     },
     methods:{
       closeHint(){
@@ -143,7 +152,7 @@ import AV from 'leancloud-storage'
         user.setPassword(this.password)
         user.setEmail(this.email)
         user.signUp().then((loginedUser)=>{
-          document.location.hash = '#/goodslist'
+          window.location.pathname = '/index.html'
         },(err)=>{
           console.log('err',err)
           if(err.code===125){
@@ -168,7 +177,8 @@ import AV from 'leancloud-storage'
         AV.User.logIn(this.username, this.password).then(function (loginedUser) {
           //console.log('loginedUser login',loginedUser);
           //在用户登录的时候，为用户创建购物车栏，地址栏等等，最好是在后台做好这些用户属性
-          document.location.hash = '#/goodslist'
+          //document.location.hash = '#/goodslist'
+          window.location.pathname = '/index.html'
         }, (err)=>{
           console.log('err',err)
           if(err.code===210){
@@ -179,6 +189,7 @@ import AV from 'leancloud-storage'
             this.nameError = '用户不存在'
           }
         });
+        document.cookie = 'isLogined=yes'
       }
     }
   }

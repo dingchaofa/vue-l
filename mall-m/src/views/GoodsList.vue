@@ -25,7 +25,7 @@
               <dd @click="setPriceFilter('All')">
                 <a v-bind:class="{cur: isPriceSelected === 'All'}" href="javascript:void(0)">All</a>
               </dd>
-              <dd v-for="(price,index) in priceFilter" @click="setPriceFilter(index)">
+              <dd v-for="(price,index) in priceFilter" :key="price.id" @click="setPriceFilter(index)">
                 <a @click="closeHidden(index)" v-bind:class="{cur:isPriceSelected===index}" href="javascript:void(0)">{{price.startPrice}} - {{price.endPrice}}</a>
               </dd>
             </dl>
@@ -35,7 +35,7 @@
           <div class="accessory-list-wrap">
             <div class="accessory-list col-4">
               <ul>
-                <li v-for="goods in goodsData">
+                <li v-for="goods in goodsData" :key="goods.id">
                   <div class="pic">
                     <a href="#"><img :src="goods.productUrl" alt=""></a>
                   </div>
@@ -170,7 +170,7 @@ Vue.use(VueLazyLoad,{
 
     },
     mounted(){
-        console.log('this goodslist component this.$refs.currentUser',this.$refs.currentUser.currentUser)
+        //console.log('this goodslist component this.$refs.currentUser',this.$refs.currentUser.currentUser)
         //let currentUser = localStorage.getItem('currentUser')
         this.currentUser = this.$refs.currentUser
       this.getGoodsData()

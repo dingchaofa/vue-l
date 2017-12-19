@@ -9,10 +9,10 @@
         <div class="navbar-menu-container">
           <!--<a href="/" class="navbar-link">我的账户</a>-->
           <span class="navbar-link"></span>
-          <a href="javascript:void(0)" v-show="currentUser.username"  class="navbar-link">{{currentUser.username}}</a>
+          <a href="javascript:void(0)" v-show="username"  class="navbar-link">{{username}}</a>
           <!-- <router-link to="/login" v-show="!currentUser.username">Login</router-link> -->
-          <a href="./login.html" v-show="!currentUser.username">Login</a>
-          <a href="javascript:void(0)" v-show="currentUser.username" @click="logout()" class="navbar-link">Logout</a>
+          <a href="./login.html" v-show="!username">Login</a>
+          <a href="javascript:void(0)" v-show="username" @click="logout()" class="navbar-link">Logout</a>
           <div class="navbar-cart-container">
             <span class="navbar-cart-count"></span>
             <a class="navbar-link navbar-cart-link" href="/#/cart">
@@ -28,21 +28,33 @@
 </template>
 
 <script>
+import '../../static/css/base.css'
 //import common from '../pages/common/main.js'
 import AV from 'leancloud-storage'
   export default {
     data() {
       return {
-        
+        username:'',
+        objectId:''
       }
     },
     computed:{
-      currentUser(){
-        return {
-          username:'',
-          objectId:''
-        }
-      }
+      // currentUser:{
+      //   get(){
+      //     return {
+      //       username:'',
+      //       objectId:''
+      //     }
+      //   },
+      //   set(obj){
+      //     console.log('obj')
+      //     console.log('currentUser')
+      //     // this.currentUser = obj
+      //     this.username = obj.username
+      //     this.objectId = obj.objectId
+      //   }
+      // }
+      //利用计算属性，对象方式无法更新
     },
     created(){
       this.getCurrentUser()
@@ -52,8 +64,15 @@ import AV from 'leancloud-storage'
     },
     methods: {
       logout() {
-        if(this.currentUser.username){
-          this.$store.commit('logout')
+        console.log('currentUser2',this.username)
+        if(this.username){
+          AV.User.logOut()
+            this.username = ""
+            this.objectId = ''
+            // this.currentUser = {
+            //   username:'',
+            //   objectId:''
+            // }
           console.log('logout2')
         }else{
           console.log('还未登录')
@@ -64,8 +83,12 @@ import AV from 'leancloud-storage'
       if(!currentUser){
         return
       }
-      this.currentUser.username = currentUser._serverData.username
-      this.currentUser.objectId = currentUser.id
+      this.username = currentUser._serverData.username
+      this.objectId = currentUser.id
+      // this.currentUser = {
+      //   username:currentUser._serverData.username,
+      //   objectId:currentUser.id
+      // }
       //console.log('currentUser.username',this.currentUser)
       //localStorage.setItem('currentUser',JSON.stringify(this.currentUser))
     }

@@ -11,7 +11,6 @@ new Vue({
     msg:'nnnn'
   },
   mounted(){
-    console.log('this index.js',this)
   },
   render:h=>h(GoodsList)
 })
