@@ -29,8 +29,11 @@
 
 <script>
 import '../../static/css/base.css'
+import './../../static/css/checkout.css'
 //import common from '../pages/common/main.js'
 import AV from 'leancloud-storage'
+import initLeanCloud from './../../static/js/initLeanCloud.js'
+
   export default {
     data() {
       return {
@@ -39,6 +42,12 @@ import AV from 'leancloud-storage'
       }
     },
     computed:{
+      currentUser(){
+        return {
+        username:this.username,
+        objectId:this.objectId
+      }
+      }
       // currentUser:{
       //   get(){
       //     return {
@@ -60,7 +69,7 @@ import AV from 'leancloud-storage'
       this.getCurrentUser()
     },
     mounted(){
-      
+      console.log(location.pathname)
     },
     methods: {
       logout() {

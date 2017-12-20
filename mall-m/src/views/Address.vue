@@ -20,7 +20,7 @@
         <div class="addr-list-wrap">
           <div class="addr-list">
             <ul>
-              <li v-for="(address,index) in addressListDisplay" :class="{checkedAddress : checkedAddress===index}" @click="checkedAddress=index">
+              <li :key="address.id" v-for="(address,index) in addressListDisplay" :class="{checkedAddress : checkedAddress===index}" @click="checkedAddress=index">
                 <svg @click="editAddress(index)" class="icon icon-edit"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-edit"></use></svg>
                 <dl>
                   <dt>收件人姓名：{{address.name}}</dt>
@@ -255,12 +255,14 @@
           return
         }
         //console.log(this.$router)
-        this.$router.push({
-          path:'/orderList',
-          query:{
-            checkedAddress:this.checkedAddress
-          }
-        })
+        // this.$router.push({
+        //   path:'/orderList',
+        //   query:{
+        //     checkedAddress:this.checkedAddress
+        //   }
+        // })
+        window.location.href = window.location.origin+ '/order.html' + '?checkedAddress='+this.checkedAddress
+        
       }
     }
   }

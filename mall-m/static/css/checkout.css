@@ -387,7 +387,9 @@ html {
   color: #333; }
 .cart-item-list .item-price-total {
   color: #d1434a;
-  font-size: 16px; }
+  font-size: 16px; 
+  min-width: 120px;
+  overflow: hidden;}
 .cart-item-list .item-edit-btn {
   position: relative;
   z-index: 6; }

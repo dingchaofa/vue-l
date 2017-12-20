@@ -27,7 +27,7 @@
             </ul>
           </div>
           <ul class="cart-item-list">
-            <li v-for="(order,index) in orderList">
+            <li :key="order.id" v-for="(order,index) in orderList">
               <div class="cart-tab-1">
                 <div class="cart-item-pic">
                   <img :src="order.productUrl" alt="">
@@ -100,6 +100,7 @@
 </template>
 
 <script>
+
   import AV from 'leancloud-storage'
   import PageHeader from '@/components/PageHeader'
   import PageFooter from './../components/PageFooter'
@@ -108,6 +109,7 @@
   import Modal from './../components/Modal'
   import ShippingProcess from './../components/ShippingProcess'
   import bus from '@/../static/js/bus'
+
   export default {
     data(){
       return {
@@ -136,7 +138,9 @@
     },
     methods:{
       getOrderList(){
-        let index = this.$router.currentRoute.query.checkedAddress
+        //let index = this.$router.currentRoute.query.checkedAddress
+        //let index =parseInt(window.location.search.match(/(?<==)\d/)[0])
+        let index =parseInt(window.location.search.match(/\d/)[0])
         this.currentUser = this.$refs.currentUser.currentUser
         let query = new AV.Query('_User')
         query.get(this.currentUser.objectId).then(result=>{

@@ -112,7 +112,7 @@
   import SvgIcon from './../components/SvgIcon.vue'
   import axios from 'axios'
   import AV from 'leancloud-storage'
-  import initLeanCloud from './../../static/js/initLeanCloud.js'
+  
   import InfiniteLoading from 'vue-infinite-loading';
   import Modal from './../components/Modal.vue'
   import VueLazyLoad from 'vue-lazyload'
@@ -170,9 +170,11 @@ Vue.use(VueLazyLoad,{
 
     },
     mounted(){
-        //console.log('this goodslist component this.$refs.currentUser',this.$refs.currentUser.currentUser)
-        //let currentUser = localStorage.getItem('currentUser')
-        this.currentUser = this.$refs.currentUser
+        this.currentUser = {
+          username:this.$refs.currentUser.username,
+          objectId:this.$refs.currentUser.objectId
+        }
+        console.log('this goodslist component this.currentUser',this.currentUser)
       this.getGoodsData()
     },
     methods:{
@@ -311,17 +313,15 @@ Vue.use(VueLazyLoad,{
         this.getGoodsData()
       },
       addCart(goods){
-        let currentUser = this.$store.state.currentUser
-        //console.log(currentUser)
-        if(currentUser.username){//如果登录了
+        if(this.currentUser.username){//如果登录了
           //查找购物车里是否有这个商品
           //根据商品的objectId，来查询购物车是否有这个商品，如果有就+1，如果没有就添加
           let query = new AV.Query('_User')
 
-          query.get(currentUser.objectId).then(result=>{
+          query.get(this.currentUser.objectId).then(result=>{
             //console.log('result',result)
             let cartList =  result.get('cartList')
-            let user = AV.Object.createWithoutData('_User', currentUser.objectId);
+            let user = AV.Object.createWithoutData('_User', this.currentUser.objectId);
             let isGoods = false
             for (let i=0;i<cartList.length;i++){
               if(cartList[i].objectId===goods.objectId){

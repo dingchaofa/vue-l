@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <svg-icon></svg-icon>
-    <page-header></page-header>
+    <page-header ref="currentUser"></page-header>
     <breaks>
       <span>购物车</span>
     </breaks>
@@ -21,7 +21,7 @@
             </ul>
           </div>
           <ul class="cart-item-list">
-            <li v-for="(goods,index) in goodsData">
+            <li v-for="(goods,index) in goodsData" :key="goods.id">
               <div class="cart-tab-1">
                 <div class="cart-item-check">
                   <a href="javascipt:;" class="checkbox-btn item-check-btn" @click="checkGoods(index)">
@@ -87,7 +87,8 @@
             </div>
             <div class="btn-wrap">
               <!--<a class="btn btn&#45;&#45;red" :class="[ sumPrice>0 ? '':'btn&#45;&#45;dis']" href="/#/address">确认订单</a>-->
-              <router-link class="btn btn--red" :class="[ sumPrice>0 ? '':'btn--dis']" to="/address">确认订单</router-link>
+              <!-- <router-link class="btn btn--red" :class="[ sumPrice>0 ? '':'btn--dis']" to="/address">确认订单</router-link> -->
+              <a class="btn btn--red" :class="[ sumPrice>0 ? '':'btn--dis']" href="/address.html">确认订单</a>
             </div>
           </div>
         </div>
@@ -106,7 +107,7 @@
         <use xlink:href="#icon-tip"></use>
       </svg>
       <h1 slot="header">您还未登录，请登录</h1>
-      <router-link slot="footer" to="/login">登录</router-link>
+      <a slot="footer" href="/login.html">去登录</a>
     </modal>
     <page-footer></page-footer>
   </div>
@@ -128,7 +129,11 @@
       return {
         goodsData: [],
         showDel:false,
-        isChecked:false //是否选中
+        isChecked:false, //是否选中
+        currentUser:{
+          username:'',
+          objectId:''
+        }
       }
     },
     components: {
@@ -139,6 +144,10 @@
       Modal
     },
     mounted() {
+      this.currentUser = {
+          username:this.$refs.currentUser.username,
+          objectId:this.$refs.currentUser.objectId
+        }
       if(this.currentUser.username){
         this.getGoodsList()
       }
@@ -165,10 +174,13 @@
           }
         })
         return _sum
-      },
-      currentUser(){
-        return this.$store.state.currentUser
       }
+      // currentUser(){
+      //   return {
+      //     username:this.$refs.currentUser.username,
+      //     objectId:this.$refs.currentUser.objectId //应当避免在计算属性中使用$refs
+      //   }
+      //}
     },
     methods: {
       getGoodsList() {
