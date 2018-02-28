@@ -2,7 +2,7 @@
 对mall单页面程序，用webpack打造成多页面应用
 
 #### 预览
-
+https://dingchaofa.github.io/vue-l/mall-m/dist/
 
 #### 运行
 
